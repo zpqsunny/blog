@@ -1,0 +1,44 @@
+---
+title: "OpenWrt 基本配置"
+date: 2019-06-19 20:54:15 +0800
+categories: [Linux]
+tags: [OpenWrt]
+---
+ssh 192.168.1.1 root 默认密码为空
+
+```shell
+# === Set up the WAN (eth0) interface ==================
+# Default is DHCP, this sets it to PPPoE (typical for DSL/ADSL)
+# From http://wiki.openwrt.org/doc/howto/internet.connection
+# Supply values for DSLUSERNAME and DSLPASSWORD
+# and uncomment ten lines
+#
+# echo 'Configuring WAN link for PPPoE'
+# DSLUSERNAME=YOUR-DSL-USERNAME
+# DSLPASSWORD=YOUR-DSL-PASSWORD
+# uci set network.wan.proto=pppoe
+# uci set network.wan.username=$DSLUSERNAME
+# uci set network.wan.password=$DSLPASSWORD
+# uci commit network
+# ifup wan
+# echo 'Waiting for link to initialize'
+# sleep 20
+```
+
+```shell
+# === Update the software packages =============
+# Download and update all the interesting packages
+# Some of these are pre-installed, but there is no harm in
+# updating/installing them a second time.
+# echo 'Updating software packages'
+# opkg update                # retrieve updated packages
+# opkg install luci          # install the web GUI
+# opkg install luci-i18n-base-zh-cn # web GUI 中文界面
+# opkg install luci-i18n-firewall-zh-cn 防火墙中文
+# opkg install snmpd fprobe  # install snmpd & fprobe
+# opkg install luci-app-sqm  # install the SQM modules to get fq_codel etc
+# opkg install ppp-mod-pppoe # install PPPoE module
+# opkg install avahi-daemon  # install the mDNS daemon
+# opkg install netperf	     # install the netperf module for speed testing
+```
+> [https://github.com/richb-hanover/OpenWrtScripts/blob/master/config-openwrt.sh](https://github.com/richb-hanover/OpenWrtScripts/blob/master/config-openwrt.sh)

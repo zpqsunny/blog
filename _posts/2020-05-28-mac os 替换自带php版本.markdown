@@ -1,0 +1,24 @@
+---
+title: "mac os 替换自带php版本"
+date: 2020-05-28 12:45:27 +0800
+categories: [Linux]
+tags: [Mac, PHP]
+---
+通过brew 安装的php版本后执行命令
+
+```shell
+brew info php@7.2
+```
+执行后会提示需要执行的命令
+
+If you need to have this software first in your PATH instead consider running:
+  echo 'export PATH="/usr/local/opt/php@7.2/bin:$PATH"' >> ~/.zshrc
+  echo 'export PATH="/usr/local/opt/php@7.2/sbin:$PATH"' >> ~/.zshrc
+
+执行 echo 命令就行了
+
+最后source
+
+```shell
+source ~/.zshrc //立即生效
+```

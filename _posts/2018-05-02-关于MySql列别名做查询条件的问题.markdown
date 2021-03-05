@@ -1,0 +1,19 @@
+---
+title: "关于MySql列别名做查询条件的问题"
+date: 2018-05-02 10:36:27 +0800
+categories: [Mysql]
+tags: [Mysql]
+---
+假如有这样一条sql语句
+
+```sql
+select name as name1 from table1 where name1='aaa'
+```
+
+mysql 中不可以这样使用别名,那可不可以用其他什么方式来代替 ?
+
+首先 字段别名不能直接在谓词部分引用
+这个查询可以改成这样：
+```sql
+select name as name1 from table1 having (name1='aaa')
+```

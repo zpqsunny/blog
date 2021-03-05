@@ -1,0 +1,104 @@
+---
+title: "自己搭建一个动态域名服务DDNS"
+date: 2017-03-31 11:21:38 +0800
+categories: [PHP, DNS, DDNS]
+tag: [PHP, DDNS]
+---
+### DDNS
+DDNS（Dynamic Domain Name Server）是动态域名服务的缩写。
+> DDNS是将用户的动态IP地址映射到一个固定的域名解析服务上，用户每次连接网络的时候客户端程序就会通过信息传递把该主机的动态IP地址传送给位于服务商主机上的服务器程序，服务器程序负责提供DNS服务并实现动态域名解析。
+
+## 需求对象
+家庭/公司内部服务需要对外公开，但却没有固定IP的用户。
+## 服务搭建条件
+1. 有自己的域名
+2. 有操作域名SDK（这里我用的是阿里云的万网）
+3. 内部服务器（不经常关机就行）
+4. 开发能力
+
+## 服务运行流程
+```flow
+st=>start: Start
+e=>end: End
+sub1=>subroutine: 获取外网ip地址
+sub2=>subroutine: 获取dns域名解析地址
+ifsame=>condition: 解析地址 == 外网ip地址 ?
+upip=>subroutine: 更新域名A记录
+st->sub1->sub2->ifsame
+ifsame(yes)->e
+ifsame(no)->upip->e
+```
+```php
+//主要逻辑代码
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2017/3/30
+ * Time: 20:55
+ */
+include_once './aliyun/aliyun-php-sdk-core/Config.php';
+use Alidns\Request\V20150109\DescribeDomainRecordsRequest;
+use Alidns\Request\V20150109\UpdateDomainRecordRequest;
+class dns {
+
+    private $Access_Key;
+    private $Access_Key_Secret;
+    private $log = '';
+
+    public function __construct($Access_Key,$Access_Key_Secret)
+    {
+        $this->Access_Key = $Access_Key;
+        $this->Access_Key_Secret = $Access_Key_Secret;
+    }
+
+    public function updns()
+    {
+        $result = file_get_contents('http://www.zpq.me/common/ip');//自己写的一个方法，返回请求的ip
+        if ( $result ) {
+
+            $this->log .= $result.PHP_EOL;
+
+            $result = json_decode($result,true);
+            $ip = $result['data'];
+            $iClientProfile = DefaultProfile::getProfile("cn-hangzhou",
+                $this->Access_Key, $this->Access_Key_Secret);
+            $client = new DefaultAcsClient($iClientProfile);
+            $findid = new DescribeDomainRecordsRequest();
+            $findid->setActionName('DescribeDomainRecords');
+            $findid->setDomainName('zpq.me');
+            $findid->setRRKeyWord('nat.zpq.me');//需要更新的域名
+            $id = $client->getAcsResponse($findid);
+            $id = json_encode($id);//这行和下面这行主要是将返回的格式转成数组型，ali sdk json没有转数组型 转成了对象。在不改变sdk内容这里重复解析了下json
+            $id = json_decode($id,true);
+            $res = $id['DomainRecords']['Record'][0];
+            if ($res['Value'] != $ip) {
+                $this->log .= 'get dns ip = '.$res['Value'].' localhost ip is '.$ip.PHP_EOL;
+                $request = new UpdateDomainRecordRequest();
+                $request->setMethod("GET");
+                $request->setActionName('UpdateDomainRecord');
+                $request->setRecordId($res['RecordId']);//这里的RecordId 是指 nat.zpq.me记录的id值，更新a记录需要该值。
+                $request->setRR('nat.zpq.me');
+                $request->setType('A');
+                $request->setValue($ip);//更新新值
+                $request->setTTL(600);
+                $request->setPriority(10);
+                $request->setLine('default');
+                $client->getAcsResponse($request);
+            } else {
+
+                $this->log .= 'get dns ip = '.$res['Value'].' the same  localhost ip is '.$ip.PHP_EOL;
+            }
+
+        } else {
+
+            $this->log .= 'get ip = fail'.PHP_EOL;
+        }
+        $resource = fopen('log.txt','a+');//写日志
+        fwrite($resource,$this->log);
+
+    }
+
+}
+```
+以上是粗略的逻辑代码，放在内部服务器上，这里以linux 为例，用crontab 做定时任务。可以一天执行个两次。

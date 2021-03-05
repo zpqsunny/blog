@@ -1,0 +1,32 @@
+---
+title: "微信支付报错“支付签名验证失败”"
+date: 2017-06-01 22:06:08 +0800
+categories: [Laravel]
+tags: [PHP, 微信支付]
+---
+### 微信支付有几个地方需要注意的
+- sign 签名时需要在末尾增加key参数 key 参数在商户后台进行设置 [sign签名验证](https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=20_1)
+- wx.config 签名验证[工具](https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign) **url** 参数必须是当前js运行所在的url(包括参数) 如果签名失败可能跟支付的授权目录有关
+- 微信创建统一订单时返回的数据格式中只有**prepay_id**参数有用，其他返回的参数无用
+- wx.chooseWXpay 在调起微信支付时需要二次签名(sign签名)，其中有个地方需要注意(巨坑)。具体二次签名如下
+```php
+$appid = 'appid';              //appid
+$randstr = '123123213213';     //随机字符串
+$time = '123456789';           //时间戳
+$key = 'keyyyyyyyy';           //商户后台设置的key
+$prepayid = 'wx2017060115493564b5a926a10145685802';//假设统一订单返回的prepayid
+$prepayid = 'prepay_id='.$prepayid;//这里要组装(我是坑)
+        $signstr = "appId={$appid}&nonceStr={$randstr}&package={$prepayid}&signType=MD5&timeStamp={$time}&key={$key}";
+//生成需要签名的字符串为
+//appId=appid&nonceStr=123123213213&package=prepay_id=wx2017060115493564b5a926a10145685802&signType=MD5&timeStamp=123456789&key=keyyyyyyyy";
+$paysign = strtoupper(md5($signstr))；
+//data 为返回为前台数据
+$data = [
+    'nonceStr' => $randstr,
+    'timestamp' => $time,
+    'signType' => 'MD5',
+    'paySign' => $paysign,
+    'package' => $prepayid,
+];
+```
+- wx.chooseWXpay 中有个参数timestamp 不是timeStamp 需要签名的时间戳都是timeStamp js里的都是小写的。

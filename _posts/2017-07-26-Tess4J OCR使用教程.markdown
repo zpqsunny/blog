@@ -1,0 +1,43 @@
+---
+title: "Tess4J OCR使用教程"
+date: 2017-07-26 15:25:35 +0800
+categories: [Java]
+tags: [Tesseract-OCR, tessdata]
+---
+## 介绍
+Tesseract-OCR支持中文识别，并且开源和提供全套的训练工具，是快速低成本开发的首选。而Tess4J则是Tesseract在Java PC上的应用。在英文和数字识别中性能还是不错的，但是在中文识别中，无论速度还是识别率还是较弱，建议有条件的话，针对场景进行训练，会获得较好结果，本文仅对目前Tess4J的用法进行介绍。
+
+
+## 教程
+
+1. Tess4J官网下载源码包
+  [官网下载](http://tess4j.sourceforge.net/)
+
+2. 创建Java项目并配置
+
+  网上不少文章会提到DLL，其实在最新的版本，如果源码包里面有dist路径，则只需要配置该jar包和lib中相关的jar即可。
+  **注意点1：将dist/tess4j-3.4.0.jar 及 lib/*.jar加入项目**
+  **注意点2：tessdata一定要配置到根目录，否则需要在代码中指定dataPath**
+
+3. 创建一个main
+```java
+public static void main(String[] args) throws TesseractException {
+        ITesseract instance = new Tesseract();
+        //如果未将tessdata放在根目录下需要指定绝对路径
+        //instance.setDatapath("the absolute path of tessdata");
+        // 我们需要指定识别语种
+        instance.setLanguage("chi_sim");
+        // 指定识别图片
+        File imgDir = new File("test_chinese_07.PNG");
+        long startTime = System.currentTimeMillis();
+        String ocrResult = instance.doOCR(imgDir);
+        // 输出识别结果
+        System.out.println("OCR Result: \n" + ocrResult + "\n 耗时：" + (System.currentTimeMillis() - startTime) + "ms");
+    }
+```
+
+4. 注意三处：
+
+- **tessdata放在与src同级的根目录下，否则需要指定dataPath**
+- **如果需要识别英文之外的语种，需要指定识别语种。**
+- **其他语种下载地址：其他语种[下载地址](https://github.com/tesseract-ocr/tessdata)**

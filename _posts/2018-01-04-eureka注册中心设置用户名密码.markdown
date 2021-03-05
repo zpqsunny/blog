@@ -1,0 +1,22 @@
+---
+title: "eureka注册中心设置用户名密码"
+date: 2018-01-04 17:20:11 +0800
+categories: [Java]
+tags: [Spring Cloud]
+---
+1. 加入安全认证依赖
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+```
+2. 在application.properties加入认证的用户名和密码
+```properties
+security.user.name=你的用户名
+security.user.password=你的密码
+```
+3. 修改url注册
+```properties
+eureka.client.serviceUrl.defaultZone=http://${security.user.name}:${security.user.password}@127.0.0.1:${server.port}/eureka/
+```

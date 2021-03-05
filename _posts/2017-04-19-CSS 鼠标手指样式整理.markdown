@@ -1,0 +1,30 @@
+---
+title: "CSS 鼠标手指样式整理"
+date: 2017-04-19 20:15:12 +0800
+categories: [前端]
+tags: [css]
+---
+### 通过设置style属性来控制鼠标指针样式
+
+```css
+style="cursor:*"
+```
+```html
+<a href="#" style="cursor:pointer">CSS鼠标手型效果</a>
+<a href="#" style="cursor:crosshair">CSS鼠标十字型 效果</a>
+<a href="#" style="cursor:help">CSS鼠标问号效果</a>
+```
+```
+text		是移动到文本上的那种效果
+wait		是等待的那种效果
+default	 是默认效果
+e-resize	是向右的箭头
+ne-resize	是向右上的箭头
+n-resize	是向上的箭头
+nw-resize	是向左上的箭头
+w-resize	是向左的箭头
+sw-resize	是左下的箭头
+s-resize	是向下的箭头
+se-resize	是向右下的箭头
+auto		是由系统自动给出效果
+```

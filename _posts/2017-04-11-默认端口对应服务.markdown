@@ -1,0 +1,606 @@
+---
+title: "默认端口对应服务"
+date: 2017-04-11 15:02:36 +0800
+categories: [Linux]
+tag: [端口]
+---
+计算机之间依照互联网传输层TCP/IP协议不同的协议通信，都有不同的对应端口。所以，利用短信（datagram）的UDP，所采用的端口号码不一定和采用TCP的端口号码一样。以下为两种通信协议的端口列表链接：
+
+[TOC]
+
+## 端口状态颜色图例
+
+|  使用状态  | 叙述 | 颜色  |
+| ------------ | ------------ | ------------ |
+|**官方**|应用与端口组合记录在IANA的端口分配列表中|白
+| <font color=blue>**非官方**</font>|<font color=blue>应用与端口组合不在IANA的端口分配列表中</font>|<font color=blue>蓝</font>|
+| <font color=khaki>**多重使用**</font> | <font color=khaki>已知多个应用程序使用这个port</font>  | <font color=khaki>黄</font>|
+
+## 0到1023号端口
+
+以下列表仅列出常用端口，详细的列表请参阅[IANA](http://www.iana.org/assignments/port-numbers "IANA")网站。
+
+|端口|描述|状态|
+| ------------ | ------------ | ------------ |
+|0/TCP,UDP|保留端口；不使用（若发送过程不准备接受回复消息，则可以作为源端口）|官方|
+|1/TCP,UDP|TCPMUX（传输控制协议端口服务多路开关选择器）|官方|
+|5/TCP,UDP|RJE（远程作业登录）|官方|
+|7/TCP,UDP|ECHO（回显）协议|官方|
+|<font style='color:khaki'>9/UDP</font>|<font style='color:khaki'>DISCARD（丢弃）协议</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>9/TCP,UDP</font>|<font style='color:khaki'>网络唤醒</font>|<font style='color:khaki'>非官方</font>|
+|11/TCP,UDP|SYSTAT协议|官方|
+|13/TCP,UDP|DAYTIME协议|官方|
+|15/TCP,UDP|NETSTAT协议|官方|
+|17/TCP,UDP|QOTD（Quote of the Day，每日引用）协议|官方|
+|18/TCP,UDP|消息发送协议|官方|
+|19/TCP,UDP|CHARGEN（字符发生器）协议|官方|
+|20/TCP,UDP|文件传输协议 - 默认数据端口|官方|
+|21/TCP,UDP|文件传输协议 - 控制端口|官方|
+|22/TCP,UDP|SSH（Secure Shell） - 远程登录协议，用于安全登录文件传输（SCP，SFTP）及端口重新定向|官方|
+|23/TCP,UDP|Telnet终端仿真协议 - 未加密文本通信|官方|
+|25/TCP,UDP|SMTP（简单邮件传输协议） - 用于邮件服务器间的电子邮件传递|官方|
+|<font style='color:blue'>26/TCP,UDP</font>|<font style='color:blue'>RSFTP - 一个简单的类似FTP的协议</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>35/TCP,UDP</font>|<font style='color:blue'>任意的私有打印机服务端口</font>|<font style='color:blue'>非官方</font>|
+|37/TCP,UDP|TIME时间协议|官方|
+|39/TCP,UDP|Resource Location Protocol（资源定位协议）|官方|
+|41/TCP,UDP|图形|官方|
+|<font style='color:khaki'>42/TCP,UDP</font>|<font style='color:khaki'>Host Name Server（主机名服务）</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>42/TCP,UDP</font>|<font style='color:khaki'>WINS（WINS主机名服务）</font>|<font style='color:khaki'>非官方</font>|
+|43/TCP|WHOIS协议|官方|
+|49/TCP,UDP|TACACS登录主机协议|官方|
+|53/TCP,UDP|DNS（域名服务系统）|官方|
+|56/TCP,UDP|远程访问协议|官方|
+|57/TCP|MTP，邮件传输协议|官方|
+|67/UDP|BOOTP（BootStrap协议）服务；同时用于动态主机设置协议|官方|
+|68/UDP|BOOTP客户端；同时用于动态主机设定协议|官方|
+|69/UDP|TFTP（小型文件传输协议）|官方|
+|70/TCP|Gopher信息检索协议|官方|
+|79/TCP|Finger协议|官方|
+|80/TCP|HTTP（超文本传输协议）- 用于传输网页|官方|
+|<font style='color:blue'>81/TCP</font>|<font style='color:blue'>Torpark - 洋葱路由</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>82/UDP</font>|<font style='color:blue'>Torpark - 控制端口</font>|<font style='color:blue'>非官方</font>|
+|88/TCP|Kerberos - 认证代理|官方|
+|101/TCP|主机名|官方|
+|102/TCP|ISO-TSAP协议|官方|
+|107/TCP|远程Telnet协议|官方|
+|109/TCP|POP (Post Office Protocol)，“邮局协议”，第2版|官方|
+|110/TCP|POP3，“邮局协议”，第3版 - 用于接收电子邮件|官方|
+|111/TCP,UDP|Sun远程过程调用协议|官方|
+|113/TCP|Ident（英语：Ident protocol） - 旧的服务器身份识别系统，仍然被IRC服务器用来认证它的用户|官方|
+|115/TCP|SFTP，简单文件传输协议|官方|
+|117/TCP|UNIX间复制协议（Unix to Unix Copy Protocol，UUCP）的路径确定服务|官方|
+|118/TCP,UDP|SQL服务|官方|
+|119/TCP|网络新闻传输协议 - 用来收取新闻组的消息|官方|
+|123/UDP|NTP（Network Time Protocol） - 用于时间同步|官方|
+|<font style='color:khaki'>135/TCP,UDP</font>|<font style='color:khaki'>分布式运算环境（Distributed Computing Environment，DCE）终端解决方案及定位服务</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>135/TCP,UDP</font>|<font style='color:khaki'>微软终端映射器（End Point Mapper，EPMAP）</font>|<font style='color:khaki'>官方</font>|
+|137/TCP,UDP|NetBIOS NetBIOS 名称服务|官方|
+|138/TCP,UDP|NetBIOS NetBIOS 数据报文服务|官方|
+|139/TCP,UDP|NetBIOS NetBIOS 会话服务|官方|
+|143/TCP,UDP|IMAP4（Internet信息访问协议 4） - 用于检索 E-mails|官方|
+|152/TCP,UDP|BFTP, 后台文件传输程序|官方|
+|153/TCP,UDP|简单网关监控协议（Simple Gateway Monitoring Protocol（英语：Simple Gateway Monitoring Protocol），SGMP）|官方|
+|156/TCP,UDP|SQL服务|官方|
+|158/TCP,UDP|DMSP, 分布式邮件服务协议|非官方|
+|161/TCP,UDP|SNMP (简单网络管理协议)|官方|
+|162/TCP,UDP|SNMP协议的TRAP操作|官方|
+|170/TCP|打印服务|官方|
+|179/TCP|BGP (边界网关协议)|官方|
+|194/TCP|IRC（互联网中继聊天）|官方|
+|201/TCP,UDP|AppleTalk 路由维护|官方|
+|209/TCP,UDP|Quick Mail 传输协议|官方|
+|213/TCP,UDP|IPX，互联网分组交换协议|官方|
+|218/TCP,UDP|MPP，信息发布协议|官方|
+|220/TCP,UDP|IMAP，交互邮件访问协议第3版|官方|
+|259/TCP,UDP|ESRO, Efficient Short Remote Operations|官方|
+|264/TCP,UDP|BGMP（英语：Border Gateway Multicast Protocol），边界网关多播协议|官方|
+|308/TCP|Novastor 在线备份|官方|
+|311/TCP|Apple 服务器管理员工具、工作组管理|官方|
+|318/TCP,UDP|TSP，时间戳协议（英语：Time Stamp Protocol）|官方|
+|323/TCP,UDP|IMMP, Internet消息映射协议|官方|
+|383/TCP,UDP|HP OpenView HTTPs 代理程序|官方|
+|366/TCP,UDP|SMTP, 简单邮件传送协议. ODMR,按需邮件传递|官方|
+|369/TCP,UDP|Rpc2 端口映射|官方|
+|371/TCP,UDP|ClearCase 负载平衡|官方|
+|384/TCP,UDP|一个远程网络服务器系统|官方|
+|387/TCP,UDP|AURP, AppleTalk 升级用路由协议|官方|
+|389/TCP,UDP|轻型目录访问协议|官方|
+|401/TCP,UDP|UPS，不间断电源供应系统|官方|
+|<font style='color:blue'>411/TCP</font>|<font style='color:blue'>Direct Connect Hub 端口</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>412/TCP</font>|<font style='color:blue'>Direct Connect 客户端—客户端 端口</font>|<font style='color:blue'>非官方</font>|
+|427/TCP,UDP|SLP (位置服务协议)|官方|
+|443/TCP|HTTPS - HTTP over TLS/SSL（加密传输）|官方|
+|444/TCP,UDP|SNPP，简单网络分页协议|官方|
+|445/TCP|Microsoft-DS (Active Directory，Windows 共享, Sasser worm，Agobot, Zobotworm)|官方|
+|445/UDP|Microsoft-DS SMB SMB文件共享|官方|
+|464/TCP,UDP|Kerberos 更改/设定密码|官方|
+|<font style='color:khaki'>465/TCP</font>|<font style='color:khaki'>Cisco 专用协议</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>465/TCP</font>|<font style='color:khaki'>SSL加密的SMTP</font>|<font style='color:khaki'>非官方</font>|
+|475/TCP|tcpnethaspsrv（Hasp 服务, TCP/IP 版本）|官方|
+|497/TCP|dantz 备份服务|官方|
+|500/TCP,UDP|ISAKMP，IKE-Internet 密钥交换|官方|
+|502/TCP,UDP|Modbus 协议|官方|
+|512/TCP|exec, 远程进程执行|官方|
+|512/UDP|comsat 和 biff（英语：Biff (computing)） 命令：用于电子邮件系统|官方|
+|513/TCP|login，登录命令|官方|
+|513/UDP|Who命令，查看当前登录计算机的用户|官方|
+|514/TCP|rsh protocol - 用于在远程计算机上执行非交互式命令，并查看返回结果|官方|
+|514/UDP|syslog 协议 - 用于系统登录|官方|
+|515/TCP|Line Printer Daemon protocol - 用于 LPD 打印机服务器|官方|
+|517/UDP|Talk|官方|
+|518/UDP|NTalk|官方|
+|520/TCP|efs|官方|
+|520/UDP|Routing - RIP|官方|
+|513/UDP|路由器|官方|
+|524/TCP,UDP|NCP（NetWare 核心协议）用于一系列功能，例如访问NetWare主服务器资源、同步时间等|官方|
+|525/UDP|Timed，时间服务|官方|
+|530/TCP,UDP|远程过程调用|官方|
+|<font style='color:blue'>531/TCP,UDP</font>|<font style='color:blue'>AOL 即时通信软件, IRC</font>|<font style='color:blue'>非官方</font>|
+|532/TCP|netnews|官方|
+|533/UDP|netwall,用于紧急广播|官方|
+|540/TCP|UUCP (Unix-to-Unix 复制协议)|官方|
+|542/TCP,UDP|commerce (Commerce Applications)|官方|
+|543/TCP|klogin, Kerberos登陆|官方|
+|544/TCP|kshell, Kerberos 远程shell|官方|
+|546/TCP,UDP|DHCPv6客户端|官方|
+|547/TCP,UDP|DHCPv6服务器|官方|
+|548/TCP|通过传输控制协议（TCP）的 Appletalk 文件编制协议（AFP(Apple Filing Protocol))|官方|
+|550/UDP|new-rwho, new-who|官方|
+|554/TCP,UDP|RTSP 即时流协定|官方|
+|556/TCP|Brunhoff 的远程文件系统（RFS）|官方|
+|560/UDP|rmonitor, Remote Monitor|官方|
+|561/UDP|monitor|官方|
+|563/TCP,UDP|NNTP 通过安全套接字层的网络新闻传输协议（NNTPS）|官方|
+|587/TCP|邮件消息提交（SMTP，RFC 2476）|官方|
+|591/TCP|FileMaker 6.0（及之后版本）网络共享（HTTP的替代，见80端口）|官方|
+|593/TCP,UDP|HTTP RPC Ep Map（RPC over HTTP, often used by DCOM services and Microsoft Exchange Server）|官方|
+|604/TCP|TUNNEL|官方|
+|631/TCP,UDP|互联网打印协议||
+|636/TCP,UDP|LDAP over SSL（加密传输，也被称为LDAPS）|官方|
+|639/TCP,UDP|MSDP, 组播源发现协议|官方|
+|646/TCP,UDP|LDP, 标签分发协议|官方|
+|647/TCP|DHCP故障转移协议|官方|
+|648/TCP|RRP( Registry Registrar Protocol)，注册表注册协议|官方|
+|652/TCP|DTCP(Dynamic Tunnel Configuration Protocol)，动态主机设置协议|官方|
+|654/UDP|AODV(Ad hoc On-Demand Distance Vector)，无线自组网按需平面距离向量路由协议|官方|
+|<font style='color:blue'>665/TCP</font>|<font style='color:blue'>sun-dr, Remote Dynamic Reconfiguration</font>|<font style='color:blue'>非官方</font>|
+|666/UDP|毁灭战士，电脑平台上的一系列第一人称射击游戏。|官方|
+|674/TCP|ACAP(Application Configuration Access Protocol)，应用配置访问协议|官方|
+|691/TCP|MS Exchange Routing|官方|
+|692/TCP|Hyperwave-ISP||
+|<font style='color:blue'>694/UDP</font>|<font style='color:blue'>用于带有高可用性的群集的心跳服务</font>|<font style='color:blue'>非官方</font>|
+|695/TCP|IEEE-MMS-SSL||
+|698/UDP|OLSR(Optimized Link State Routing)，优化链路状态路由协议||
+|699/TCP|Access Network||
+|700/TCP|EPP, 可扩展供应协议||
+|701/TCP|LMP,链路管理协议||
+|702/TCP|IRIS over BEEP||
+|706/TCP|SILC, Secure Internet Live Conferencing||
+|711/TCP|TDP, 标签分发协议||
+|712/TCP|TBRPF, Topology Broadcast based on Reverse-Path Forwarding||
+|720/TCP|SMQP, Simple Message Queue Protocol||
+|749/TCP, UDP|kerberos-adm, Kerberos administration||
+|750/UDP|Kerberos version IV||
+|782/TCP|Conserver serial-console management server||
+|829/TCP|CMP，证书管理协议||
+|860/TCP|iSCSI，Internet小型计算机系统接口||
+|873/TCP|rsync ，文件同步协议|官方|
+|<font style='color:blue'>901/TCP</font>|<font style='color:blue'>Samba 网络管理工具(SWAT)</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>902</font>|<font style='color:blue'>VMware服务器控制台[2]</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>904</font>|<font style='color:blue'>VMware服务器替代（如果902端口已被占用）</font>|<font style='color:blue'>非官方</font>|
+|911/TCP|Network Console on Acid（NCA） - local tty redirection over OpenSSH||
+|<font style='color:blue'>981/TCP</font>|<font style='color:blue'>SofaWare Technologies Remote HTTPS management for firewall devices running embedded Checkpoint Firewall-1 software</font>|<font style='color:blue'>非官方</font>|
+|989/TCP,UDP|FTP Protocol (data) over TLS/SSL|官方|
+|990/TCP,UDP|FTP Protocol (control) over TLS/SSL|官方|
+|991/TCP,UDP|NAS (Netnews Admin System)||
+|992/TCP,UDP|基于TLS / SSL的Telnet协议|官方|
+|993/TCP|基于 SSL的IMAP4 (加密传输)|官方|
+|995/TCP|基于 SSL的POP3 (加密传输)|官方|
+
+## 1024到49151号端口
+
+以下列表仅列出常用端口，详细的列表请参阅[IANA](http://www.iana.org/assignments/port-numbers)网站。
+> When investigating TCP traffic, be careful not to confuse the client and server ports. The client port is incremental, typically beginning at 1024 at boot time and wrapping at 4096.[来源请求] If the port you are investigating is in the lower part of this range, it may be a client port. Stateful firewalls identify the server port, but packet sniffers and stateless firewalls do not. For example, a packet sniffer showing a TCP packet with source port 1080 and destination port 1494 might be SOCKS or Citrix-ICA. The only way to know for sure is to examine the initial TCP handshake.
+With UDP, client port selection depends on the application and may be incremental, fixed to a nonsensical value, or fixed equal to the server port.
+
+|端口|描述|状态|
+| ------------ | ------------ | ------------ |
+|1025/tcp|NFS-or-IIS|非官方|
+|1026/tcp|通常用于微软DCOM服务器|非官方|
+|1029/tcp|通常用于微软DCOM服务器|非官方|
+|1058/tcp|nim AIX Network Installation Manager|官方|
+|1059/tcp|nimreg|官方|
+|1080/tcp|SOCKS代理|官方|
+|1099/tcp,udp|RMI Registry|官方|
+|1109/tcp|Kerberos POP||
+|1140/tcp|AutoNOC|官方|
+|1167/udp|phone, conference calling||
+|1176/tcp|Perceptive Automation Indigo home control server|官方|
+|1182/tcp,udp|AcceleNet|官方|
+|1194/udp|OpenVPN|官方|
+|1198/tcp,udp|The cajo project Free dynamic transparent distributed computing in Java|官方|
+|1200/udp|Steam Friends Applet|官方|
+|1214/tcp|Kazaa|官方|
+|1223/tcp,udp|TGP: "TrulyGlobal Protocol" aka "The Gur Protocol"|官方|
+|1241/tcp,udp|Nessus Security Scanner|官方|
+|<font style='color:blue'>1248/tcp</font>|<font style='color:blue'>NSClient/NSClient++/NC_Net (Nagios)</font>|<font style='color:blue'>非官方</font>|
+|1270/tcp,udp|Microsoft Operations Manager 2005 agent (MOM 2005)|官方|
+|<font style='color:blue'>1311/tcp</font>|<font style='color:blue'>Dell Open Manage Https Port</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>1313/tcp</font>|<font style='color:blue'>Xbiim (Canvii server) Port</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>1337/tcp</font>|<font style='color:blue'>WASTE Encrypted File Sharing Program</font>|<font style='color:blue'>非官方</font>|
+|1352/tcp|IBM Lotus Notes/Domino RPC|官方|
+|1387/tcp,udp|Computer Aided Design Software Inc LM (cadsi-lm )|官方|
+|1414/tcp|IBM MQSeries|官方|
+|1431/tcp|RGTP|官方|
+|1433/tcp,udp|Microsoft SQL 数据库系统|官方|
+|1434/tcp,udp|Microsoft SQL 活动监视器|官方|
+|1494/tcp|Citrix Presentation Server ICA Client|官方|
+|1512/tcp,udp|WINS||
+|<font style='color:khaki'>1521/tcp</font>|<font style='color:khaki'>nCube License Manager</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>1521/tcp</font>|<font style='color:khaki'>Oracle database default listener, in future releases official port 2483</font>|<font style='color:khaki'>非官方</font>|
+|1524/tcp,udp|ingreslock, ingres|官方|
+|<font style='color:blue'>1526/tcp</font>|<font style='color:blue'>Oracle database common alternative for listener</font>|<font style='color:blue'>非官方</font>|
+|1533/tcp|IBM Sametime IM - Virtual Places Chat|官方|
+|1547/tcp,udp|Laplink|官方|
+|<font style='color:blue'>1550</font>|<font style='color:blue'>Gadu-Gadu (Direct Client-to-Client)</font>|<font style='color:blue'>非官方</font>|
+|1581/udp|MIL STD 2045-47001 VMF|官方|
+|<font style='color:blue'>1589/udp</font>|<font style='color:blue'>Cisco VQP (VLAN Query Protocol) / VMPS</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>1627</font>|<font style='color:blue'>iSketch</font>|<font style='color:blue'>非官方</font>|
+|1677/tcp|Novell GroupWise clients in client/server access mode||
+|1701/udp|l2tp, Layer 2 Tunnelling protocol||
+|1716/tcp|America's Army MMORPG Default Game Port|官方|
+|1723/tcp,udp|Microsoft PPTP VPN|官方|
+|<font style='color:blue'>1725/udp</font>|<font style='color:blue'>Valve Steam Client</font>|<font style='color:blue'>非官方</font>|
+|1755/tcp,udp|Microsoft Media Services (MMS, ms-streaming)|官方|
+|<font style='color:khaki'>1761/tcp,udp</font>|<font style='color:khaki'>cft-0</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>1761/tcp</font>|<font style='color:khaki'>Novell Zenworks Remote Control utility</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>1762-1768/tcp,udp</font>|<font style='color:khaki'>cft-1 to cft-7</font>|<font style='color:khaki'>官方</font>|
+|1812/udp|radius, RADIUS authentication protocol||
+|1813/udp|radacct, RADIUS accounting protocol||
+|1863/tcp|Windows Live Messenger, MSN|官方|
+|1900/udp|Microsoft SSDP Enables discovery of UPnP devices|官方|
+|1935/tcp|Real Time Messaging Protocol (RTMP) raw protocol|官方|
+|1970/tcp,udp|Danware Data NetOp Remote Control|官方|
+|1971/tcp,udp|Danware Data NetOp School|官方|
+|1972/tcp,udp|InterSystems Caché|官方|
+|1975-77/udp|Cisco TCO (Documentation)|官方|
+|1984/tcp|Big Brother - network monitoring tool|官方|
+|1985/udp|Cisco HSRP|官方|
+|1994/TCP|STUN-SDLC protocol for tunneling||
+|1998/tcp|Cisco X.25 service (XOT)||
+|2000/tcp,udp|Cisco SCCP (Skinny)|官方|
+|<font style='color:blue'>2002/tcp</font>|<font style='color:blue'>Cisco Secure Access Control Server (ACS) for Windows</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2030</font>|<font style='color:blue'>Oracle Services for Microsoft Transaction Server</font>|<font style='color:blue'>非官方</font>|
+|2031/tcp,udp|mobrien-chat - Mike O'Brien <mike@mobrien.com> November 2004|官方|
+|<font style='color:khaki'>2049/udp</font>|<font style='color:khaki'>nfs, NFS Server</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>2049/udp</font>|<font style='color:khaki'>shilp</font>|<font style='color:khaki'>官方</font>|
+|2053/tcp|knetd, Kerberos de-multiplexor||
+|<font style='color:blue'>2056/udp</font>|<font style='color:blue'>Civilization 4 multiplayer</font>|<font style='color:blue'>非官方</font>|
+|2073/tcp,udp|DataReel Database|官方|
+|2074/tcp,udp|Vertel VMF SA (i.e. App.. SpeakFreely)|官方|
+|<font style='color:khaki'>2082/tcp</font>|<font style='color:khaki'>Infowave Mobility Server</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>2082/tcp</font>|<font style='color:khaki'>CPanel, default port</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>2083/tcp</font>|<font style='color:khaki'>Secure Radius Service (radsec)</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>2083/tcp</font>|<font style='color:khaki'>CPanel default SSL port</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>2086/tcp</font>|<font style='color:khaki'>GNUnet</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>2086/tcp</font>|<font style='color:khaki'>WebHost Manager default port</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:blue'>2087/tcp</font>|<font style='color:blue'>WebHost Manager default SSL port</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2095/tcp</font>|<font style='color:blue'>CPanel default webmail port</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2096/tcp</font>|<font style='color:blue'>CPanel default SSL webmail port</font>|<font style='color:blue'>非官方</font>|
+|2161/tcp|?-APC Agent|官方|
+|2181/tcp,udp|EForward-document transport system|官方|
+|<font style='color:blue'>2200/tcp</font>|<font style='color:blue'>Tuxanci game server</font>|<font style='color:blue'>非官方</font>|
+|2219/tcp,udp|NetIQ NCAP Protocol|官方|
+|2220/tcp,udp|NetIQ End2End|官方|
+|<font style='color:blue'>2222/tcp</font>|<font style='color:blue'>DirectAdmin's default port</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2222/udp</font>|<font style='color:blue'>Microsoft Office OS X antipiracy network monitor [1]</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2301/tcp</font>|<font style='color:blue'>HP System Management Redirect to port 2381</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2302/udp</font>|<font style='color:blue'>ArmA multiplayer (default for game)</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2302/udp</font>|<font style='color:blue'>Halo: Combat Evolved multiplayer</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2303/udp</font>|<font style='color:blue'>ArmA multiplayer (default for server reporting) (default port for game +1)</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2305/udp</font>|<font style='color:blue'>ArmA multiplayer (default for VoN) (default port for game +3)</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2369/tcp</font>|<font style='color:blue'>Default port for BMC Software CONTROL-M/Server - Configuration Agent port number - though often changed during installation</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2370/tcp</font>|<font style='color:blue'>Default port for BMC Software CONTROL-M/Server - Port utilized to allow the CONTROL-M/Enterprise Manager to connect to the CONTROL-M/Server - though often changed during installation</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2381/tcp</font>|<font style='color:blue'>HP Insight Manager default port for webserver</font>|<font style='color:blue'>非官方</font>|
+|2404/tcp|IEC 60870-5-104|官方|
+|2427/udp|Cisco MGCP|官方|
+|2447/tcp,udp|ovwdb - OpenView Network Node Manager (NNM) daemon|官方|
+|2483/tcp,udp|Oracle database listening port for unsecure client connections to the listener, replaces port 1521|官方|
+|2484/tcp,udp|Oracle database listening port for SSL client connections to the listener|官方|
+|<font style='color:blue'>2546/tcp,udp</font>|<font style='color:blue'>Vytal Vault - Data Protection Services</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2593/tcp,udp</font>|<font style='color:blue'>RunUO - Ultima Online server</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2598/tcp</font>|<font style='color:blue'>new ICA - when Session Reliability is enabled, TCP port 2598 replaces port 1494</font>|<font style='color:blue'>非官方</font>|
+|2612/tcp,udp|QPasa from MQSoftware|官方|
+|<font style='color:blue'>2710/tcp</font>|<font style='color:blue'>XBT Bittorrent Tracker</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2710/udp</font>|<font style='color:blue'>XBT Bittorrent Tracker experimental UDP tracker extension</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2710/tcp</font>|<font style='color:blue'>Knuddels.de</font>|<font style='color:blue'>非官方</font>|
+|2735/tcp,udp|NetIQ Monitor Console|官方|
+|2809/tcp|corbaloc:iiop URL, per the CORBA 3.0.3 specification.Also used by IBM WebSphere Application Server Node Agent
+|官方|
+|2809/udp|corbaloc:iiop URL, per the CORBA 3.0.3 specification.|官方|
+|<font style='color:blue'>2944/udp</font>|<font style='color:blue'>Megaco Text H.248</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>2945/udp</font>|<font style='color:blue'>Megaco Binary (ASN.1) H.248</font>|<font style='color:blue'>非官方</font>|
+|2948/tcp,udp|WAP-push Multimedia Messaging Service (MMS)|官方|
+|2949/tcp,udp|WAP-pushsecure Multimedia Messaging Service (MMS)|官方|
+|<font style='color:blue'>2967/tcp</font>|<font style='color:blue'>Symantec AntiVirus Corporate Edition</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>3000/tcp</font>|<font style='color:blue'>Miralix License server</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>3000/udp</font>|<font style='color:blue'>Distributed Interactive Simulation (DIS), modifiable default port</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>3001/tcp</font>|<font style='color:blue'>Miralix Phone Monitor</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>3002/tcp</font>|<font style='color:blue'>Miralix CSTA</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>3003/tcp</font>|<font style='color:blue'>Miralix GreenBox API</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>3004/tcp</font>|<font style='color:blue'>Miralix InfoLink</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>3006/tcp</font>|<font style='color:blue'>Miralix SMS Client Connector</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>3007/tcp</font>|<font style='color:blue'>Miralix OM Server</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>3025/tcp</font>|<font style='color:blue'>netpd.org</font>|<font style='color:blue'>非官方</font>|
+|3050/tcp,udp|gds_db (Interbase/Firebird)|官方|
+|3074/tcp,udp|Xbox Live|官方|
+|3128/tcp|HTTP used by web caches and the default port for the Squid cache|官方|
+|3260/tcp|iSCSI target|官方|
+|3268/tcp|msft-gc, Microsoft Global Catalog (LDAP service which contains data from Active Directory forests)|官方|
+|3269/tcp|msft-gc-ssl, Microsoft Global Catalog over SSL (similar to port 3268, LDAP over SSL version)|官方|
+|<font style='color:blue'>3300/tcp</font>|<font style='color:blue'>TripleA game server</font>|<font style='color:blue'>非官方</font>|
+|3305/tcp,udp|ODETTE-FTP|官方|
+|3306/tcp,udp|MySQL数据库系统|官方|
+|<font style='color:blue'>3333/tcp</font>|<font style='color:blue'>Network Caller ID server</font>|<font style='color:blue'>非官方</font>|
+|3386/tcp,udp|GTP' 3GPP GSM/UMTS CDR logging protocol|官方|
+|3389/tcp|远程桌面协议（RDP）|官方|
+|3396/tcp|Novell NDPS Printer Agent|官方|
+|3689/tcp|DAAP Digital Audio Access Protocol used by Apple’s iTunes|官方|
+|3690/tcp|Subversion version control system|官方|
+|3702/tcp,udp|Web Services Dynamic Discovery (WS-Discovery), used by various components of Windows Vista|官方|
+|3724/tcp|World of Warcraft Online gaming MMORPG|官方|
+|3784/tcp,udp|Ventrilo VoIP program used by Ventrilo|官方|
+|3785/udp|Ventrilo VoIP program used by Ventrilo|官方|
+|3868 tcp,udp|Diameter base protocol|官方|
+|<font style='color:blue'>3872/tcp</font>|<font style='color:blue'>Oracle Management Remote Agent</font>|<font style='color:blue'>非官方</font>|
+|3899/tcp|Remote Administrator|非官方|
+|3900/tcp|Unidata UDT OS udt_os|官方|
+|3945/tcp|Emcads server service port, a Giritech product used by G/On|官方|
+|<font style='color:blue'>4000/tcp</font>|<font style='color:blue'>Diablo II game NoMachine Network Server (nxd)（英语：NX_technology）</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>4007/tcp</font>|<font style='color:blue'>PrintBuzzer printer monitoring socket server</font>|<font style='color:blue'>非官方</font>|
+|4089/tcp,udp|OpenCORE Remote Control Service|官方|
+|4093/tcp,udp|PxPlus Client server interface ProvideX|官方|
+|4096/udp|Bridge-Relay Element ASCOM|官方|
+|<font style='color:blue'>4100</font>|<font style='color:blue'>WatchGuard Authentication Applet - default port</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:khaki'>4111/tcp,udp</font>|<font style='color:khaki'>Xgrid</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>4111/tcp</font>|<font style='color:khaki'>Microsoft Office SharePoint Portal Server - 默认管理端口</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:blue'>4226/tcp,udp</font>|<font style='color:blue'>Aleph One (computer game)</font>|<font style='color:blue'>非官方</font>|
+|4224/tcp|Cisco CDP Cisco discovery Protocol|非官方|
+|<font style='color:blue'>4569/udp</font>|<font style='color:blue'>Inter-Asterisk eXchange</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:khaki'>4662/tcp</font>|<font style='color:khaki'>OrbitNet Message Service</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>4662/tcp</font>|<font style='color:khaki'>通常用于eMule</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:blue'>4664/tcp</font>|<font style='color:blue'>Google桌面搜索</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>4672/udp</font>|<font style='color:blue'>eMule - 常用端口</font>|<font style='color:blue'>非官方</font>|
+|4894/tcp|LysKOM Protocol A|官方|
+|4899/tcp|Radmin 远程控制工具|官方|
+|<font style='color:khaki'>5000/tcp</font>|<font style='color:khaki'>commplex-main</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>5000/tcp</font>|<font style='color:khaki'>UPnP - Windows network device interoperability</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>5000/tcp,udp</font>|<font style='color:khaki'>VTun - VPN 软件</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>5001/tcp,udp</font>|<font style='color:khaki'>Iperf (Tool for measuring TCP and UDP bandwidth performance)</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>5001/tcp</font>|<font style='color:khaki'>Slingbox及Slingplayer</font>|<font style='color:khaki'>非官方</font>|
+|5003/tcp|FileMaker Filemaker Pro|官方|
+|5004/udp|RTP实时传输协议|官方|
+|5005/udp|RTP实时传输协议|官方|
+|5031/tcp,udp|AVM CAPI-over-TCP (ISDN over Ethernet tunneling)|非官方|
+|5050/tcp|Yahoo! Messenger|官方|
+|5051/tcp|ita-agent Symantec Intruder Alert|官方|
+|5060/tcp,udp|Session Initiation Protocol (SIP)|官方|
+|5061/tcp|Session Initiation Protocol (SIP) over Transport Layer Security (TLS)|官方|
+|5093/udp|SPSS License Administrator (SPSS)|官方|
+|<font style='color:blue'>5104/tcp</font>|<font style='color:blue'>IBM NetCOOL / IMPACT HTTP Service</font>|<font style='color:blue'>非官方</font>|
+|5106/tcp|A-Talk Common connection|非官方|
+|5107/tcp|A-Talk 远程服务器连接|非官方|
+|5110/tcp|ProRat Server|非官方|
+|5121/tcp|Neverwinter Nights|官方|
+|<font style='color:blue'>5176/tcp</font>|<font style='color:blue'>ConsoleWorks default UI interface</font>|<font style='color:blue'>非官方</font>|
+|5190/tcp|ICQ and AOL Instant Messenger|官方|
+|5222/tcp|XMPP/Jabber - client connection|官方|
+|<font style='color:blue'>5223/tcp</font>|<font style='color:blue'>XMPP/Jabber - default port for SSL Client Connection</font>|<font style='color:blue'>非官方</font>|
+|5269/tcp|XMPP/Jabber - server connection|官方|
+|5351/tcp,udp|NAT Port Mapping Protocol - client-requested configuration for inbound connections through network address translators|官方|
+|5353/udp|mDNS - multicastDNS||
+|5402/tcp,udp|StarBurst AutoCast MFTP|官方|
+|5405/tcp,udp|NetSupport|官方|
+|5421/tcp,udp|Net Support 2|官方|
+|5432/tcp|PostgreSQL database system|官方|
+|<font style='color:blue'>5445/udp</font>|<font style='color:blue'>Cisco Vidéo VT Advantage</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>5495/tcp</font>|<font style='color:blue'>Applix TM1 Admin server</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>5498/tcp</font>|<font style='color:blue'>Hotline tracker server connection</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>5499/udp</font>|<font style='color:blue'>Hotline tracker server discovery</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>5500/tcp</font>|<font style='color:blue'>VNC remote desktop protocol - for incoming listening viewer, Hotline control connection</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>5501/tcp</font>|<font style='color:blue'>Hotline file transfer connection</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>5517/tcp</font>|<font style='color:blue'>Setiqueue Proxy server client for SETI@Home project</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>5555/tcp</font>|<font style='color:blue'>Freeciv multiplay port for versions up to 2.0, Hewlett Packard Data Protector, SAP</font>|<font style='color:blue'>非官方</font>|
+|5556/tcp|Freeciv multiplay port|官方|
+|5631/tcp|赛门铁克 pcAnywhere|官方|
+|5632/udp|赛门铁克 pcAnywhere|官方|
+|<font style='color:blue'>5666/tcp</font>|<font style='color:blue'>NRPE (Nagios)</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>5667/tcp</font>|<font style='color:blue'>NSCA (Nagios)</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>5800/tcp</font>|<font style='color:blue'>VNC remote desktop protocol - for use over HTTP</font>|<font style='color:blue'>非官方</font>|
+|5814/tcp,udp|Hewlett-Packard Support Automation (HP OpenView Self-Healing Services)|官方|
+|5900/tcp|VNC remote desktop protocol (used by ARD)|官方|
+|6000/tcp|X11 - used between an X client and server over the network|官方|
+|6001/udp|X11 - used between an X client and server over the network|官方|
+|<font style='color:blue'>6005/tcp</font>|<font style='color:blue'>Default port for BMC Software CONTROL-M/Server - Socket Port number used for communication between CONTROL-M processes - though often changed during installation</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>6050/tcp</font>|<font style='color:blue'>Brightstor Arcserve Backup</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>6051/tcp</font>|<font style='color:blue'>Brightstor Arcserve Backup</font>|<font style='color:blue'>非官方</font>|
+|6100/tcp|Vizrt System|非官方|
+|6110/tcp,udp|softcm HP SoftBench CM|官方|
+|6111/tcp,udp|spc HP SoftBench Sub-Process Control|官方|
+|<font style='color:khaki'>6112/tcp</font>|<font style='color:khaki'>"dtspcd" - a network daemon that accepts requests from clients to execute commands and launch applications remotely</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>6112/tcp</font>|<font style='color:khaki'>Blizzard's Battle.net gaming service, ArenaNet gaming service</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:blue'>6129/tcp</font>|<font style='color:blue'>Dameware Remote Control</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>6257/udp</font>|<font style='color:blue'>WinMX （参见6699端口）</font>|<font style='color:blue'>非官方</font>|
+|6346/tcp,udp|gnutella-svc (FrostWire, Limewire, Bearshare, etc.)|官方|
+|6347/tcp,udp|gnutella-rtr|官方|
+|6444/tcp,udp|Sun Grid Engine - Qmaster Service|官方|
+|6445/tcp,udp|Sun Grid Engine - Execution Service|官方|
+|<font style='color:blue'>6502/tcp,udp</font>|<font style='color:blue'>Danware Data NetOp Remote Control</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>6522/tcp</font>|<font style='color:blue'>Gobby (and other libobby-based software)</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>6543/udp</font>|<font style='color:blue'>Jetnet - default port that the Paradigm Research & Development Jetnet protocol communicates on</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>6566/tcp</font>|<font style='color:blue'>SANE (Scanner Access Now Easy) - SANE network scanner daemon</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>6600/tcp</font>|<font style='color:blue'>Music Playing Daemon (MPD)</font>|<font style='color:blue'>非官方</font>|
+|6619/tcp,udp|ODETTE-FTP over TLS/SSL|官方|
+|<font style='color:blue'>6665-6669/tcp</font>|<font style='color:blue'>Internet Relay Chat</font>|<font style='color:blue'>官方</font>|
+|<font style='color:blue'>6679/tcp</font>|<font style='color:blue'>IRC SSL （安全互联网中继聊天） - 通常使用的端口</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>6697/tcp</font>|<font style='color:blue'>IRC SSL （安全互联网中继聊天） - 通常使用的端口</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>6699/tcp</font>|<font style='color:blue'>WinMX （参见6257端口）</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>6881-6999/tcp,udp</font>|<font style='color:blue'>BitTorrent 通常使用的端口</font>|<font style='color:blue'>非官方</font>|
+|6891-6900/tcp,udp|Windows Live Messenger （文件传输）|官方|
+|6901/tcp,udp|Windows Live Messenger （语音）|官方|
+|<font style='color:khaki'>6969/tcp</font>|<font style='color:khaki'>acmsoda</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>6969/tcp</font>|<font style='color:khaki'>BitTorrent tracker port</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:blue'>7000/tcp</font>|<font style='color:blue'>Default port for Azureus's built in HTTPS Bittorrent Tracker</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>7001/tcp</font>|<font style='color:blue'>Default port for BEA WebLogic Server's HTTP server - though often changed during installation</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>7002/tcp</font>|<font style='color:blue'>Default port for BEA WebLogic Server's HTTPS server - though often changed during installation</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>7005/tcp,udp</font>|<font style='color:blue'>Default port for BMC Software CONTROL-M/Server and CONTROL-M/Agent's - Agent to Server port though often changed during installation</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>7006/tcp,udp</font>|<font style='color:blue'>Default port for BMC Software CONTROL-M/Server and CONTROL-M/Agent's - Server to Agent port though often changed during installation</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>7010/tcp</font>|<font style='color:blue'>Default port for Cisco AON AMC (AON Management Console) [2]</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>7025/tcp</font>|<font style='color:blue'>Zimbra - lmtp [mailbox] - local mail delivery</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>7047/tcp</font>|<font style='color:blue'>Zimbra - conversion server</font>|<font style='color:blue'>非官方</font>|
+|7171/tcp|Tibia||
+|<font style='color:blue'>7306/tcp</font>|<font style='color:blue'>Zimbra - mysql [mailbox]</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>7307/tcp</font>|<font style='color:blue'>Zimbra - mysql [logger] - logger</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>7312/udp</font>|<font style='color:blue'>Sibelius License Server port</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>7670/tcp</font>|<font style='color:blue'>BrettspielWelt BSW Boardgame Portal</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>7777/tcp</font>|<font style='color:blue'>Default port used by Windows backdoor program tini.exe</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:khaki'>8000/tcp</font>|<font style='color:khaki'>iRDMI - often mistakenly used instead of port 8080 (The Internet Assigned Numbers Authority (iana.org) officially lists this port for iRDMI protocol)</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>8000/tcp</font>|<font style='color:khaki'>Common port used for internet radio streams such as those using SHOUTcast</font>|<font style='color:khaki'>非官方</font>|
+|8002/tcp|Cisco Systems Unified Call Manager Intercluster Port||
+|<font style='color:khaki'>8008/tcp</font>|<font style='color:khaki'>HTTP 替代端口</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>8008/tcp</font>|<font style='color:khaki'>IBM HTTP Server 默认管理端口</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:blue'>8009/tcp</font>|<font style='color:blue'>Apache JServ 协议 v13 (ajp13) 例如：Apache mod_jk Tomcat会使用。</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>8010/tcp</font>|<font style='color:blue'>XMPP/Jabber 文件传输</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>8074/tcp</font>|<font style='color:blue'>Gadu-Gadu</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:khaki'>8080/tcp</font>|<font style='color:khaki'>HTTP 替代端口 （http_alt） - commonly used for web proxy and caching server, or for running a web server as a non-root user</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>8080/tcp</font>|<font style='color:khaki'>Apache Tomcat</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>8086/tcp</font>|<font style='color:khaki'>HELM Web Host Automation Windows Control Panel</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>8086/tcp</font>|<font style='color:khaki'>Kaspersky AV Control Center TCP Port</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>8087/tcp</font>|<font style='color:khaki'>Hosting Accelerator Control Panel</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>8087/udp</font>|<font style='color:khaki'>Kaspersky AV Control Center UDP Port</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:blue'>8087/tcp</font>|<font style='color:blue'>SW Soft Plesk 控制面板</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>8090/tcp</font>|<font style='color:blue'>Another HTTP Alternate (http_alt_alt) - used as an alternative to port 8080</font>|<font style='color:blue'>非官方</font>|
+|8118/tcp|Privoxy web proxy - advertisements-filtering web proxy|官方|
+|8123/tcp|Dynmap[3]默认网页端口号(Minecraft在线地图)|非官方|
+|<font style='color:blue'>8200/tcp</font>|<font style='color:blue'>GoToMyPC</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>8220/tcp</font>|<font style='color:blue'>Bloomberg</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>8222</font>|<font style='color:blue'>VMware服务器管理用户界面(不安全网络界面)[4]。参见 8333端口</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>8291/tcp</font>|<font style='color:blue'>Winbox - Default port on a MikroTik RouterOS for a Windows application used to administer MikroTik RouterOS</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>8294/tcp</font>|<font style='color:blue'>Bloomberg</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>8333</font>|<font style='color:blue'>VMware 服务器管理用户界面（安全网络界面）[5]。参见8222端口</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>8400</font>|<font style='color:blue'>Commvault Unified Data Management</font>|<font style='color:blue'>官方</font>|
+|<font style='color:blue'>8443/tcp</font>|<font style='color:blue'>SW Soft Plesk Control Panel</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>8500/tcp</font>|<font style='color:blue'>ColdFusion Macromedia/Adobe ColdFusion default Webserver port</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>8501/udp</font>|<font style='color:blue'>Duke Nukem 3D - Default Online Port</font>|<font style='color:blue'>官方</font>|
+|<font style='color:blue'>8767/udp</font>|<font style='color:blue'>TeamSpeak - Default UDP Port</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>8880</font>|<font style='color:blue'>WebSphere Application Server SOAP Connector port</font>|<font style='color:blue'></font>|
+|<font style='color:blue'>8881/tcp</font>|<font style='color:blue'>Atlasz Informatics Research Ltd Secure Application Server</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>8882/tcp</font>|<font style='color:blue'>Atlasz Informatics Research Ltd Secure Application Server</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:khaki'>8888/tcp,udp</font>|<font style='color:khaki'>NewsEDGE server</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>8888/tcp</font>|<font style='color:khaki'>Sun Answerbook dwhttpd server (deprecated by docs.sun.com)</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>8888/tcp</font>|<font style='color:khaki'>GNUmp3d HTTP music streaming and web interface port</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>8888/tcp</font>|<font style='color:khaki'>Hero Fighter Network Game Server</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>9000/tcp</font>|<font style='color:khaki'>Buffalo LinkSystem web access</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>9000/tcp</font>|<font style='color:khaki'>DBGp</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>9000/udp</font>|<font style='color:khaki'>UDPCast</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>9001</font>|<font style='color:khaki'>cisco-xremote router configuration</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>9001</font>|<font style='color:khaki'>Tor network default port</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>9001/tcp</font>|<font style='color:khaki'>DBGp Proxy</font>|<font style='color:khaki'>非官方</font>|
+|9009/tcp,udp|Pichat Server - Peer to peer chat software|官方|
+|9043/tcp|WebSphere Application Server Administration Console secure port||
+|9060/tcp|WebSphere Application Server Administration Console||
+|9100/tcp|Jetdirect HP Print Services|官方|
+|<font style='color:blue'>9110/udp</font>|<font style='color:blue'>SSMP Message protocol</font>|<font style='color:blue'>非官方</font>|
+|9101|Bacula Director|官方|
+|9102|Bacula File Daemon|官方|
+|9103|Bacula Storage Daemon|官方|
+|9119/TCP,UDP|MXit Instant Messenger|官方|
+|9535/tcp|man, Remote Man Server||
+|9535|mngsuite - Management Suite Remote Control|官方|
+|<font style='color:khaki'>9800/tcp,udp</font>|<font style='color:khaki'>WebDAV Source Port</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>9800</font>|<font style='color:khaki'>WebCT e-learning portal</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>9999</font>|<font style='color:khaki'>Hydranode - edonkey2000 telnet control port</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>9999</font>|<font style='color:khaki'>Urchin Web Analytics</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>10000</font>|<font style='color:khaki'>Webmin - web based Linux admin tool</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:khaki'>10000</font>|<font style='color:khaki'>BackupExec</font>|<font style='color:khaki'>非官方</font>|
+|10008|Octopus Multiplexer - CROMP protocol primary port, hoople.org|官方|
+|<font style='color:blue'>10017</font>|<font style='color:blue'>AIX,NeXT, HPUX - rexd daemon control port</font>|<font style='color:blue'>非官方</font>|
+|10024/tcp|Zimbra - smtp [mta] - to amavis from postfix|非官方|
+|10025/tcp|Ximbra - smtp [mta] - back to postfix from amavis|非官方|
+|10050/tcp|Zabbix-Agent||
+|10051/tcp|Zabbix-Server||
+|10113/tcp,udp|NetIQ Endpoint|官方|
+|10114/tcp,udp|NetIQ Qcheck|官方|
+|10115/tcp,udp|NetIQ Endpoint|官方|
+|10116/tcp,udp|NetIQ VoIP Assessor|官方|
+|<font style='color:blue'>10480</font>|<font style='color:blue'>SWAT 4 Dedicated Server</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>11211</font>|<font style='color:blue'>memcached</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>11235</font>|<font style='color:blue'>Savage:Battle for Newerth Server Hosting</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>11294</font>|<font style='color:blue'>Blood Quest Online Server</font>|<font style='color:blue'>非官方</font>|
+|11371|OpenPGP HTTP Keyserver|官方|
+|<font style='color:blue'>11576</font>|<font style='color:blue'>IPStor Server management communication</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>12035/udp</font>|<font style='color:blue'>Linden Lab viewer to sim</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>12345</font>|<font style='color:blue'>NetBus - remote administration tool (often Trojan horse). Also used by NetBuster. Little Fighter 2 (TCP).</font>|<font style='color:blue'>非官方</font>|
+|12975/tcp|LogMeIn Hamachi (VPN tunnel software;also port 32976)|
+|<font style='color:blue'>13000-13050/udp</font>|<font style='color:blue'>Linden Lab viewer to sim</font>|<font style='color:blue'>非官方</font>|
+|13720/tcp|Symantec NetBackup - bprd (formerly VERITAS)||
+|13721/tcp|Symantec NetBackup - bpdbm (formerly VERITAS)||
+|13724/tcp|Symantec Network Utility - vnet (formerly VERITAS)||
+|13782/tcp|Symantec NetBackup - bpcd (formerly VERITAS)||
+|13783/tcp|Symantec VOPIED protocol (formerly VERITAS)||
+|<font style='color:blue'>14567/udp</font>|<font style='color:blue'>Battlefield 1942 and mods</font>|<font style='color:blue'>非官方</font>|
+|15000/tcp|psyBNC|非官方|
+|15000/tcp|Wesnoth|
+|<font style='color:blue'>15567/udp</font>|<font style='color:blue'>Battlefield Vietnam and mods</font>|<font style='color:blue'>非官方</font>|
+|15345/udp|XPilot|官方|
+|16000/tcp|shroudBNC|非官方|
+|<font style='color:blue'>16080/tcp</font>|<font style='color:blue'>Mac OS X Server performance cache for HTTP[6]</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>16384/udp</font>|<font style='color:blue'>Iron Mountain Digital - online backup</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>16567/udp</font>|<font style='color:blue'>Battlefield 2 and mods</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>17788/udp</font>|<font style='color:blue'>PPS网络电视</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>19226/tcp</font>|<font style='color:blue'>Panda Software AdminSecure Communication Agent</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>19638/tcp</font>|<font style='color:blue'>Ensim Control Panel</font>|<font style='color:blue'>非官方</font>|
+|19813/tcp|4D database Client Server Communication|非官方|
+|20000|Usermin - 基于网络的用户工具|官方|
+|<font style='color:blue'>20720/tcp</font>|<font style='color:blue'>Symantec i3 Web GUI server</font>|<font style='color:blue'>非官方</font>|
+|22347/tcp,udp|WibuKey - default port for WibuKey Network Server of WIBU-SYSTEMS AG|官方|
+|22350/tcp,udp|CodeMeter - default port for CodeMeter Server of WIBU-SYSTEMS AG|官方|
+|24554/tcp,udp|binkp - Fidonet mail transfers over TCP/IP|官方|
+|<font style='color:blue'>24800</font>|<font style='color:blue'>Synergy：keyboard/mouse sharing software</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>24842</font>|<font style='color:blue'>StepMania：Online: Dance Dance Revolution Simulator</font>|<font style='color:blue'>非官方</font>|
+|25565|Minecraft默认服务器端口号|非官方|
+|25999/tcp|Xfire|非官方|
+|<font style='color:khaki'>26000/tcp,udp</font>|<font style='color:khaki'>id Software's Quake server,</font>|<font style='color:khaki'>官方</font>|
+|<font style='color:khaki'>26000/tcp</font>|<font style='color:khaki'>CCP's EVE Online Online gaming MMORPG,</font>|<font style='color:khaki'>非官方</font>|
+|<font style='color:blue'>27000/udp</font>|<font style='color:blue'>(through 27006) id Software's QuakeWorld master server</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>27010/udp</font>|<font style='color:blue'>Half-Life及其修改版，如Counter-Strike</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>27015/udp</font>|<font style='color:blue'>Half-Life及其修改版，如Counter-Strike</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>27374</font>|<font style='color:blue'>Sub7's default port. Most script kiddies do not change the default port.</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>27500/udp</font>|<font style='color:blue'>(through 27900) id Software's QuakeWorld</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>27888/udp</font>|<font style='color:blue'>Kaillera server</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>27900</font>|<font style='color:blue'>(through 27901) Nintendo Wi-Fi Connection</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>27901/udp</font>|<font style='color:blue'>(through 27910) id Software's Quake II master server</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>27960/udp</font>|<font style='color:blue'>(through 27969) Activision's Enemy Territory and id Software's Quake III Arena and Quake III and some ioquake3 derived games</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>28910</font>|<font style='color:blue'>任天堂 Wi-Fi连接</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>28960</font>|<font style='color:blue'>Call of Duty 2 Common Call of Duty 2 port - (PC Version)</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>29900</font>|<font style='color:blue'>(through 29901) Nintendo Wi-Fi Connection</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>29920</font>|<font style='color:blue'>任天堂 Wi-Fi连接</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>30000</font>|<font style='color:blue'>Pokemon Netbattle</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>30564/tcp</font>|<font style='color:blue'>Multiplicity：keyboard/mouse/clipboard sharing software</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>31337/tcp</font>|<font style='color:blue'>Back Orifice - remote administration tool（often Trojan horse）</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>31337/tcp</font>|<font style='color:blue'>xc0r3 - xc0r3 security antivir port</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>31415</font>|<font style='color:blue'>ThoughtSignal - Server Communication Service（often Informational）</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>31456-31458/tcp</font>|<font style='color:blue'>TetriNET ports (in order: IRC, game, and spectating)</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>32245/tcp</font>|<font style='color:blue'>MMTSG-mutualed over MMT (encrypted transmission)</font>|<font style='color:blue'>非官方</font>|
+|33434|traceroute|官方|
+|<font style='color:blue'>37777/tcp</font>|<font style='color:blue'>Digital Video Recorder hardware</font>|<font style='color:blue'>非官方</font>|
+|<font style='color:blue'>36963</font>|<font style='color:blue'>Counter Strike 2D multiplayer port (2D clone of popular CounterStrike computer game)</font>|<font style='color:blue'>非官方</font>|
+|40000|SafetyNET p|官方|
+|40523|data packets|不确定 6|
+|<font style='color:blue'>43594-43595/tcp</font>|<font style='color:blue'>RuneScape</font>|<font style='color:blue'>非官方</font>|
+|47808|BACnet Building Automation and Control Networks|官方|
+
+## 49152到65535号端口
+
+根据定义，该段端口属于“动态端口”范围，没有端口可以被正式地注册占用。
+> 原文出自于 [https://zh.wikipedia.org/wiki/TCP/UDP端口列表](https://zh.wikipedia.org/wiki/TCP/UDP端口列表)

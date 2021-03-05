@@ -1,0 +1,74 @@
+---
+title: "Laravel 中优雅的跨域"
+date: 2019-02-15 10:38:25 +0800
+categories: [PHP]
+tags: [Laravel]
+---
+其实要想跨域网上教程多的是.  
+举例:
+
+1. Google搜索出来的结果就是在 web.php 或 api.php 文件加上
+
+```php
+header('Access-Control-Allow-Origin : *');
+header('Access-Control-Allow-Headers : Content-Type,X-Auth-Token,Authorization,Origin');
+header('Access-Control-Allow-Methods :GET, POST, PUT, DELETE, OPTIONS');
+```
+
+说实话真是简单粗暴!  既然我们选择了laravel 那当然一定要优雅 : )
+
+2. 还有一种就是用开源包 [barryvdh/laravel-cors](https://packagist.org/packages/barryvdh/laravel-cors)也是方便的,当然我们在使用的时候也应该知其然而所以然
+
+这边记录下我自己写的方法,
+
+首先理解跨域的请求方式 [https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/OPTIONS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/OPTIONS)
+
+也就是说在真正的请求资源前,会请求一个`HTTP 的 OPTIONS 方法` 来校验允许的头部  
+只有正在返回允许的头部后才会真正的请求资源.理解好请求原理之后就好写优雅的代码了.
+
+首先创建一个中间件 名字叫`CrossDomain`  
+主要代码
+
+```php
+public function handle($request, Closure $next)
+    {
+        return $next($request)->header('Access-Control-Allow-Origin', '*')
+            ->header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE')
+            ->header('Access-Control-Allow-Headers', 'Accept, Origin, Referer, User-Agent, Content-type, X-Requested-With');
+
+    }
+```
+这边偷了下懒 就直接把 `Access-Control-Allow-Origin` 设置成 `*` 如需修改允许的跨域地址,在这里设置.
+
+然后在`Kernel` 文件中定义中间件名称
+```php
+protected $routeMiddleware = [
+        ...
+        'cross.domain' => \App\Http\Middleware\CrossDomain::class,
+    ];
+```
+
+假设我们的接口路由全部定义在`routers\api.php` 文件下并且URL `/**` 都是需要跨域的.
+我们可以这么做
+主要代码
+```php
+Route::group(['middleware' => ['cross.domain']], function () {
+
+    Route::options('/{any?}', function () {
+
+        return Response::make();
+
+    })->where('any', '.*');
+});
+```
+这段代码主要操作是允许 `/**` 下所有路由都允许`OPTION方法`,并且返回允许的跨域的头部声明.
+到这边就完成了`CORS 中的预检请求`
+之后只需要在真正接口后增加名为`cross.domain` 中间件就完成了所有跨域请求.
+
+如果需要跨域`Cookie`那么还需要一下几点
+
+1. `Access-Control-Allow-Origin` 不能设置 `*` 必须指定允许的域
+2. 后端返回设置header `Access-Control-Allow-Credentials` 选项 为 `true` [https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials)
+3. `XMLHttpRequest.withCredentials` 选项设置为 `true`
+
+以上条件缺一不可!

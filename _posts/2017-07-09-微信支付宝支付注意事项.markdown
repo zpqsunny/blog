@@ -1,0 +1,52 @@
+---
+title: "微信支付宝支付注意事项"
+date: 2017-07-09 11:07:36 +0800
+categories: [Java]
+tags: [springboot]
+---
+## 微信支付
+Q 商品名称为中文时返回签名失败
+A 在签名是需要将字符串转成ISO8859-1格式
+```java
+//DigestUtils 是第三方commons-codec库
+String sign = DigestUtils.md5Hex(signstr.toString().getBytes("ISO8859-1")).toUpperCase();
+```
+Q 创建完订单进行扫码支付时,中文商品名称显示乱码
+A 微信中用的编码是`ISO8859-1` 所以需要将字符串转为`ISO8859-1`格式
+```java
+String body = new String (goodname.getBytes("UTF-8"),"ISO-8859-1")
+```
+Q 如何获取微信成功支付的回调内容
+A 回调的内容是`xml`字符串,我们需要手动解析
+```java
+// HttpServletRequest request #spring boot
+BufferedReader reader = request.getReader();
+StringBuffer inputString = new StringBuffer();
+String line ;
+while (( line = reader.readLine()) != null) {
+	inputString.append(line);
+}
+String xmlstr = inputString.toString();
+```
+
+## 支付宝支付
+Q 如何正确的签名
+A 支付宝签名要比微信的容易的多,而且出错概率较低,签名方式分为`RSA`和`RSA2`,两种方式分别都需要商户自己生成 公钥和私钥,长度必须是2048 私钥保存在本地,公钥需要上传到 商户中心 -- 开发者中心,上传时需要去掉头尾部字符串,并且去掉换行,上传时请分清楚打算用哪个加密,别`RSA`加密,却上传到`RSA2`上面.
+
+Q 进行扫码支付时,商品中文是乱码
+A 注意提交的参数`charset`是什么格式,如格式正确,在请求订单是header 部分需要声明字符编码
+```java
+HttpPost post = new HttpPost(url);
+httpPost.setHeader("Content-Type","application/x-www-form-urlencoded");
+httpPost.setEntity( new UrlEncodedFormEntity(dataList,"GBK"));
+```
+Q 支付成功回调
+A 支付宝默认开通 `TRADE_SUCCESS` 和 `WAIT_BUYER_PAY` 支付通知,`TRADE_CLOSED` 和 `TRADE_FINISHED` 需要申请开通,回调的内容数据也很好的获取.
+```java
+// HttpServletRequest request
+request.getParameter()
+```
+Q 商品名称英文时签名成功，中文时签名失败
+A 该问题应该是提交数据时格式编码有误，~~小伙伴试试这样。在签名时，把签名的字符串转成`GBK`编码,form 提交时 也用`GBK`提交~~
+支付宝 判断字符编码格式主要依据于头部`Content-Type`属性 如`"Content-Type :application/x-www-form-urlencoded;charset=utf-8`那么字符编码就是`utf-8`跟公共参数里的`charset`没有什么关系,这里推荐使用`Okhttp`包。
+微信则需要把中文字符串转成`ISO-8859-1`编码，然后再进行签名。
