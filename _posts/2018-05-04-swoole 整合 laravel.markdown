@@ -1,5 +1,5 @@
 ---
-title: "swoole 整合 laravel"
+title: "Swoole 整合 Laravel"
 date: 2018-05-04 15:28:42 +0800
 categories: [PHP]
 tags: [Laravel, Swoole]
@@ -24,8 +24,6 @@ swoole 有一个优点就是他可以常驻内存，不需要反复引用，类�
 DB contention 也可以有连接池不需要每次执行完就断开连接，减少连接次数。
 
 ## 整合代码
-
--#-more-#-
 
 安装swoole扩展 ...略
 

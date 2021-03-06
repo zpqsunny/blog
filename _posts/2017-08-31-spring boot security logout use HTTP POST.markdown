@@ -1,9 +1,8 @@
 ---
-layout: post
 title: "spring boot security logout use HTTP POST"
 date: 2017-08-31 16:48:27 +0800
 categories: [Java]
-tags: [spring]
+tags: [springboot]
 ---
 Adding CSRF will update the LogoutFilter to only use HTTP POST. This ensures that log out requires a CSRF token and that a malicious user cannot forcibly log out your users.
 

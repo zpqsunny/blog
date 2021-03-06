@@ -36,7 +36,7 @@ tags: [Laravel]
 
 返回：
 
-``` json
+```json
 {  
     "validateMessagesShowId": "_validatorMessage",  
     "status": true,  
@@ -70,7 +70,7 @@ _body 返回图像的二进制流，注意： 头部有`Set Cookie : _passport_s
 
 返回：
 
-``` json
+```json
 {"result_message":"验证码校验成功","result_code":"4"}  
 
 ```
@@ -87,7 +87,7 @@ _body 返回图像的二进制流，注意： 头部有`Set Cookie : _passport_s
 
 返回：
 
-``` json
+```json
 {"result_message":"登录成功","result_code":0,"uamtk":"hNFI2iowH46SkgEOdsC1jPSm5MeM50S1wVknuZWOCs4511110"}  
 
 ```
@@ -104,7 +104,7 @@ _body 返回图像的二进制流，注意： 头部有`Set Cookie : _passport_s
 
 返回：
 
-``` json
+```json
 {"result_message":"验证通过","result_code":0,"apptk":null,"newapptk":"1D2_g7EUpnq2hGh6OCxABPYzIkRHuXEHjaLQCIoWh5Erw1110"}  
 
 ```
@@ -119,7 +119,7 @@ _body 返回图像的二进制流，注意： 头部有`Set Cookie : _passport_s
 
 返回：
 
-``` json
+```json
 {"apptk":"1D2_g7EUpnq2hGh6OCxABPYzIkRHuXEHjaLQCIoWh5Erw1110","result_code":0,"result_message":"验证通过","username":"某某某"}  
 
 ```
@@ -130,11 +130,11 @@ _body 返回图像的二进制流，注意： 头部有`Set Cookie : _passport_s
 
 | 请求参数 | 请求值 |
 | ---- | --- |
-| \_json\_att | 空字符 |
+| _json_att | 空字符 |
 
 返回 html：
 
-``` php
+```php
 //正则匹配出乘车人信息  
 preg_match('/passengers=\[.*\];/', $body, $mth);  
 $passengerObj = str_replace("passengers=", '', $mth[0]);  
@@ -157,7 +157,7 @@ $passengerJson = json_decode($passengerJsonStr, true);
 
 返回：
 
-``` json
+```json
 {"data":  
     {"flag":"1",  
      "map":{"BJQ":"深圳东","OSQ":"深圳西","SZQ":"深圳","UNG":"龙南"},  
@@ -166,7 +166,7 @@ $passengerJson = json_decode($passengerJsonStr, true);
 
 ```
 
-``` php
+```php
 //result 结果送上 通过 `|` 分隔字符串  
 [  
 	'cc' => $d[3],  //车次  
@@ -197,16 +197,16 @@ $passengerJson = json_decode($passengerJsonStr, true);
 | ---- | --- |
 | secretStr | 上面php的secretStr |
 | train_date | 去程日期 |
-| back\_train\_date | 反程日期 |
+| back_train_date | 反程日期 |
 | tour_flag | `dc` 单程 `wc` 往返 |
 | purpose_codes | ADULT |
-| query\_from\_station\_name | `始发站名称` |
-| query\_to\_station\_name | `到达站名称` |
+| query_from_station_name | `始发站名称` |
+| query_to_station_name | `到达站名称` |
 | undefined | 空字符串 |
 
 返回：
 
-``` json
+```json
 {"validateMessagesShowId":"_validatorMessage","status":true,"httpstatus":200,"data":"N","messages":[],"validateMessages":{}}  
 
 ```
@@ -217,11 +217,11 @@ $passengerJson = json_decode($passengerJsonStr, true);
 
 | 请求参数 | 请求值 |
 | ---- | --- |
-| \_json\_att | 空字符串 |
+| _json_att | 空字符串 |
 
 返回html：
 
-``` php
+```php
 //正则匹配需要的值： globalRepeatSubmitToken，ticketInfoForPassengerForm  
 
 preg_match("/globalRepeatSubmitToken\h=\h\'.*\'\;/", $body, $ma);  
@@ -244,18 +244,18 @@ $ticketInfoForPassengerForm = json_decode($ticketInfoForPassengerForm, true);
 | 请求参数 | 请求值 |
 | ---- | --- |
 | cancel_flag | 2 |
-| bed\_level\_order\_num | 000000000000000000000000000000 |
+| bed_level_order_num | 000000000000000000000000000000 |
 | passengerTicketStr | 座位类型，0，车票类型，姓名，身份正号，电话，N（多个的话，以逗号分隔） |
 | oldPassengerStr | 姓名，证件类别，证件号码，用户类型 |
 | tour_flag | `dc` 单程 `wc` 往返 |
 | randCode | 空字符串 |
 | whatsSelect | 1 |
-| \_json\_att | 空字符串 |
-| REPEAT\_SUBMIT\_TOKEN | 上面php repeatSubmitToken |
+| _json_att | 空字符串 |
+| REPEAT_SUBMIT_TOKEN | 上面php repeatSubmitToken |
 
 返回：
 
-``` json
+```json
 {"validateMessagesShowId":"_validatorMessage","status":true,"httpstatus":200,"data":{"ifShowPassCode":"N","canChooseBeds":"N","canChooseSeats":"Y","choose_Seats":"OM","isCanChooseMid":"N","ifShowPassCodeTime":"731","submitStatus":true,"smokeStr":""},"messages":[],"validateMessages":{}}  
 
 ```
@@ -270,7 +270,7 @@ $ticketInfoForPassengerForm = json_decode($ticketInfoForPassengerForm, true);
 | oldPassengerStr | 同上 |
 | randCode | 空字符串 |
 | purpose_codes | 00 |
-| key\_check\_isChange | 上面 php $ticketInfoForPassengerForm\['key\_check\_isChange'\] |
+| key_check_isChange | 上面 php $ticketInfoForPassengerForm['key_check_isChange'] |
 | leftTicketStr | 上面 php $ticketInfoForPassengerForm['leftTicketStr'] |
 | train_location | 上面 php $ticketInfoForPassengerForm['train_location'] |
 | choose_seats | 空字符串 |
@@ -278,11 +278,11 @@ $ticketInfoForPassengerForm = json_decode($ticketInfoForPassengerForm, true);
 | whatsSelect | 1 |
 | roomType | 00 |
 | dwAll | N |
-| \_json\_att | 空字符串 |
+| _json_att | 空字符串 |
 
 返回：
 
-``` json
+```json
 {"validateMessagesShowId":"_validatorMessage","status":true,"httpstatus":200,"data":{"submitStatus":true},"messages":[],"validateMessages":{}}  
 
 ```
@@ -290,4 +290,4 @@ $ticketInfoForPassengerForm = json_decode($ticketInfoForPassengerForm, true);
 ### 其他
 
 * 对应车站代码 [车站js获取](https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9044) 大写的英文字母就是车站代码
-* 自己写的抢票demo php :fa-github: [github](https://github.com/zpqsunny/ticket)
+* ~~自己写的抢票demo php :fa-github: [github](https://github.com/zpqsunny/ticket)~~

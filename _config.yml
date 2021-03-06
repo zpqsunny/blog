@@ -20,9 +20,8 @@ title: ZpqdeBlog                          # the main title
 tagline: 热爱代码,热爱生活   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, portfolio, sidebar,
-  bootstrap Jekyll theme with responsive web design
-  and focuses on text presentation.
+  一个普通的人,做着普通的事.
+  为自己美好生活努力奋斗下去.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://zpqsunny.github.io'

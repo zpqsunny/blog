@@ -2,7 +2,7 @@
 title: "SpringMVC请求乱码解决方案"
 date: 2017-04-21 17:27:10 +0800
 categories: [Java]
-tags: [Tomcat]
+tags: [SpringMVC]
 ---
 先在web.xml设置字符编码utf-8
 

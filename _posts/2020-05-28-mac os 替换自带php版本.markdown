@@ -12,9 +12,10 @@ brew info php@7.2
 执行后会提示需要执行的命令
 
 If you need to have this software first in your PATH instead consider running:
+```shell
   echo 'export PATH="/usr/local/opt/php@7.2/bin:$PATH"' >> ~/.zshrc
   echo 'export PATH="/usr/local/opt/php@7.2/sbin:$PATH"' >> ~/.zshrc
-
+```
 执行 echo 命令就行了
 
 最后source

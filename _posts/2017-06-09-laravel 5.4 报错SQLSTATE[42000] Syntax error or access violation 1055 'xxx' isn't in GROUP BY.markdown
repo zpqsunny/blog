@@ -1,8 +1,8 @@
 ---
-title: "laravel 5.4 报错SQLSTATE[42000] Syntax error or access violation 1055 'xxx' isn't in GROUP BY"
+title: "Laravel 5.4 报错SQLSTATE[42000] Syntax error or access violation 1055 'xxx' isn't in GROUP BY"
 date: 2017-06-09 12:30:14 +0800
-categories: [Linux]
-tags: [PHP]
+categories: [PHP]
+tags: [Laravel]
 ---
 查询mysql 1055错误码发现问题为在mysql的配置中如果设置了sql_mode包含ONLY_FULL_GROUP_BY值得话，在进行查询时需要将select的字段都包含在group by 中。
 即 select x,y from xxx group by x,y

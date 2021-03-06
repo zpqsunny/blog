@@ -1,5 +1,5 @@
 ---
-title: "chrome滚动条样式修改"
+title: "Chrome滚动条样式修改"
 date: 2017-04-20 09:40:21 +0800
 categories: [前端]
 tags: [css]
@@ -8,16 +8,17 @@ tags: [css]
 
 #### 先说一下滚动条的参数：
 
+```css
+::-webkit-scrollbar /*滚动条整体部分，可以设置宽度啥的*/
+::-webkit-scrollbar-button /*滚动条两端的按钮*/
+::-webkit-scrollbar-track /*外层轨道*/
+::-webkit-scrollbar-track-piece /*内层滚动槽*/
+::-webkit-scrollbar-thumb /*滚动的滑块*/
+::-webkit-scrollbar-corner /*边角*/
+::-webkit-resizer /*定义右下角拖动块的样式*/
 ```
-::-webkit-scrollbar 滚动条整体部分，可以设置宽度啥的
-::-webkit-scrollbar-button 滚动条两端的按钮
-::-webkit-scrollbar-track  外层轨道
-::-webkit-scrollbar-track-piece  内层滚动槽
-::-webkit-scrollbar-thumb 滚动的滑块
-::-webkit-scrollbar-corner 边角
-::-webkit-resizer 定义右下角拖动块的样式
-```
-```CSS
+
+```css
 /* 设置滚动条的样式 */
 ::-webkit-scrollbar {
     width: 10px;
