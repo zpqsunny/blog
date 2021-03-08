@@ -130,9 +130,9 @@ public function getSitemap()
 
     <url>
 
-        <loc>{{URL::to('/')}}</loc>
+        <loc>{ {URL::to('/')} }</loc>
 
-        <lastmod>{{date('Y-m-d',time())}}</lastmod>
+        <lastmod>{ {date('Y-m-d',time())} }</lastmod>
 
         <changefreq>daily</changefreq>
 
@@ -142,9 +142,9 @@ public function getSitemap()
     @foreach($posts as $post)
 
     <url>
-        <loc>{{URL::to('post/'.$post->id)}}</loc>
+        <loc>{ {URL::to('post/'.$post->id)} }</loc>
 
-        <lastmod>{{$post->updated_at->format('Y-m-d')}}</lastmod>
+        <lastmod>{ {$post->updated_at->format('Y-m-d')} }</lastmod>
 
         <changefreq>weekly</changefreq>
 
