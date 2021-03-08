@@ -1,5 +1,5 @@
 ---
-title: "永远不要在MySQL中使用utf8，改用utf8mb4"
+title: 永远不要在MySQL中使用utf8，改用utf8mb4
 date: 2018-06-26 15:36:51 +0800
 categories: [Mysql]
 tags: [Mysql]

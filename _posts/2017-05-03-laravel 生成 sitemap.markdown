@@ -1,5 +1,5 @@
 ---
-title: "Laravel 生成 sitemap"
+title: Laravel 生成 sitemap
 date: 2017-05-03 22:41:16 +0800
 categories: [Laravel]
 tags: [sitemap]

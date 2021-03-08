@@ -1,5 +1,5 @@
 ---
-title: "Linux下mysql的自动补全工具mycli"
+title: Linux下mysql的自动补全工具mycli
 date: 2019-06-21 16:32:41 +0800
 categories: [Linux]
 tags: [Mysql]

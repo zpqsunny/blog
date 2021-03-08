@@ -1,5 +1,5 @@
 ---
-title: "Tess4J OCR使用教程"
+title: Tess4J OCR使用教程
 date: 2017-07-26 15:25:35 +0800
 categories: [Java]
 tags: [Tesseract-OCR, tessdata]

@@ -1,0 +1,15 @@
+---
+title: Unicode的空白字符\u00a0
+date: 2018-06-26 15:36:51 +0800
+categories: [PHP]
+tags: [空白字符]
+---
+
+最近在做网页抓取数据这块遇到一个神奇的问题
+
+php 中的 `trim` 函数一直不能去空，也差了很多资料，说是空白字符。
+就索性用 `json_encode` 一下，果然发现问题，会有一个`\u00a0` 字符
+搜了下意思是 不换行空格。。
+
+
+ > [其他的空格描述](http://unicode.org/cldr/utility/list-unicodeset.jsp?a=%5B\u0020\u00A0\u2007\u2008\u2009\u202F%5D)

@@ -1,5 +1,5 @@
 ---
-title: "关闭X-Powered-By 信息（隐藏PHP版本信息）"
+title: 关闭X-Powered-By 信息（隐藏PHP版本信息）
 date: 2017-06-02 14:28:31 +0800
 categories: [Linux]
 tags: [PHP]

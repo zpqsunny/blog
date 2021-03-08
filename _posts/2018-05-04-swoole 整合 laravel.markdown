@@ -1,5 +1,5 @@
 ---
-title: "Swoole 整合 Laravel"
+title: Swoole 整合 Laravel
 date: 2018-05-04 15:28:42 +0800
 categories: [PHP]
 tags: [Laravel, Swoole]

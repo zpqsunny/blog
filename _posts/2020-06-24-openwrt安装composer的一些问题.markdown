@@ -1,8 +1,8 @@
 ---
-title: "Openwrt安装composer的一些问题"
+title: OpenWrt安装composer的一些问题
 date: 2020-06-24 09:23:54 +0800
 categories: [Linux]
-tags: [Openwrt]
+tags: [OpenWrt]
 ---
 openwrt 安装composer遇到的问题
 

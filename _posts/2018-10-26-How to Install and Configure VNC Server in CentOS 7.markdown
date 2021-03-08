@@ -1,5 +1,5 @@
 ---
-title: "How to Install and Configure VNC Server in CentOS 7"
+title: How to Install and Configure VNC Server in CentOS 7
 date: 2018-10-26 11:07:17 +0800
 categories: [Linux]
 tags: [VNC]

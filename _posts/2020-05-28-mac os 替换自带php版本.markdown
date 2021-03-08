@@ -1,5 +1,5 @@
 ---
-title: "mac os 替换自带php版本"
+title: mac os 替换自带php版本
 date: 2020-05-28 12:45:27 +0800
 categories: [Linux]
 tags: [Mac, PHP]

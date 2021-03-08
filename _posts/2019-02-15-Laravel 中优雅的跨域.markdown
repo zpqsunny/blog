@@ -1,5 +1,5 @@
 ---
-title: "Laravel 中优雅的跨域"
+title: Laravel 中优雅的跨域
 date: 2019-02-15 10:38:25 +0800
 categories: [PHP]
 tags: [Laravel]

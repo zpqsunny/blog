@@ -1,5 +1,5 @@
 ---
-title: "高性能PHP apache httpd 2.4.x使用mod_proxy_fcgi和php-fpm"
+title: 高性能PHP apache httpd 2.4.x使用mod_proxy_fcgi和php-fpm
 date: 2017-03-17 15:16:26 +0800
 categories: [PHP]
 tags: [PHP, Apache]

@@ -1,5 +1,5 @@
 ---
-title: "Laravel 5.4 报错SQLSTATE[42000] Syntax error or access violation 1055 'xxx' isn't in GROUP BY"
+title: Laravel 5.4 报错SQLSTATE[42000] Syntax error or access violation 1055 'xxx' isn't in GROUP BY
 date: 2017-06-09 12:30:14 +0800
 categories: [PHP]
 tags: [Laravel]

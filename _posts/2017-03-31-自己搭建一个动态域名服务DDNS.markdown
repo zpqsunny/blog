@@ -1,5 +1,5 @@
 ---
-title: "自己搭建一个动态域名服务DDNS"
+title: 自己搭建一个动态域名服务DDNS
 date: 2017-03-31 11:21:38 +0800
 categories: [PHP, DNS, DDNS]
 tag: [PHP, DDNS]

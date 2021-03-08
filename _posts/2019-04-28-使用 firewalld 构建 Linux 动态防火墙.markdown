@@ -1,5 +1,5 @@
 ---
-title: "使用 firewalld 构建 Linux 动态防火墙"
+title: 使用 firewalld 构建 Linux 动态防火墙
 date: 2019-04-28 16:06:31 +0800
 categories: [Linux]
 tags: [firewalld]

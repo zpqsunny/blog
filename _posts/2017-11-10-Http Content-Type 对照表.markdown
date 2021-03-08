@@ -1,5 +1,5 @@
 ---
-title: "Http Content-Type 对照表"
+title: Http Content-Type 对照表
 date: 2017-11-10 11:32:41 +0800
 categories: [Java]
 tags: [http]

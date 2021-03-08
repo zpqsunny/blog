@@ -1,5 +1,5 @@
 ---
-title: "spring boot security logout use HTTP POST"
+title: spring boot security logout use HTTP POST
 date: 2017-08-31 16:48:27 +0800
 categories: [Java]
 tags: [springboot]

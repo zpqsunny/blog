@@ -1,5 +1,5 @@
 ---
-title: "12306 抢票脚本 基于laravel console"
+title: 12306 抢票脚本 基于laravel console
 date: 2018-01-18 17:37:19 +0800
 categories: [PHP]
 tags: [Laravel]
