@@ -1,0 +1,26 @@
+---
+title: 黑苹果显示器花屏红屏幕问题解决
+date: 2021-09-01 21:16:26 +0800
+categories: [Linux]
+tags: [Mac, Hackintosh]
+---
+
+CPU `i5-7500`
+
+显卡 `英特尔® 核芯显卡 630`
+
+在完成正常显示驱动名称和显存时显示器颜色有偏差
+
+- 先尝试使用Hackintool重新打一下缓冲帧以及显卡修复的补丁
+- 如果上述步骤不行 则尝试修改对应Mac产品型号与CPU型号相似的Mac型号标识`PI->Generic->SystemProductName`
+
+
+我安装的黑苹果系统版本是 `Catalina`
+
+对应的Mac型号最近的是 `iMac18,2    Intel Core i5-7400 @ 3.00 GHz` 和 `iMac18,3    Intel Core i5-7600K @ 3.80 GHz`
+
+但是我设置这两种类型显示器颜色就会不正常
+
+后经修改成 `iMac19,2    Intel Core i5-8500 @ 3.00 GHz` 颜色就正常显示
+
+所以说产品型号跟显示器颜色偏差是有一定的关联的
