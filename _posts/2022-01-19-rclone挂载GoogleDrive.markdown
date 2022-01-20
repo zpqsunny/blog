@@ -1,12 +1,11 @@
 ---
 title: rclone挂载GoogleDrive
-date: 2022-01-22 10:55:00 +0800
+date: 2022-01-19 10:55:00 +0800
 categories: [Linux]
 tags: [GoogleDrive, rclone]
 ---
 
->
-原文: [https://www.unvone.com/69270.html](https://www.unvone.com/69270.html)
+> 原文: [https://www.unvone.com/69270.html](https://www.unvone.com/69270.html)
 
 
 ## 安装
