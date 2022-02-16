@@ -4,6 +4,10 @@ icon: fas fa-info
 order: 4
 ---
 
+![](https://github-readme-stats.vercel.app/api?username=zpqsunny&hide_title=true&hide_border=true&show_icons=true&include_all_commits=true&line_height=21&bg_color=0,EC6C6C,FFD479,FFFC79,73FA79&theme=graywhite&locale=en)
+
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=zpqsunny&hide_title=true&hide_border=true&layout=compact&bg_color=0,73FA79,73FDFF,D783FF&theme=graywhite&locale=en)
+
 # 联系方式
 
 - 手机：MTM5MTUzMzY3MjE=
@@ -19,7 +23,6 @@ order: 4
 - 工作年限：8年
 - 技术博客：https://www.zpq.me
 - Github：https://github.com/zpqsunny
-
 - 期望职位：JAVA程序员
 - 期望薪资：18000 ~ 20000
 - 期望城市：无锡
