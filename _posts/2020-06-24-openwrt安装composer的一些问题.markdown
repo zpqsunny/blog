@@ -18,7 +18,7 @@ opkg update
 opkg install zlib
 ```
 
-composer 运行出现 ``Timezone database is corrupt -this should *never* happen ``
+composer 运行出现 ``Fatal error: date_default_timezone_get(): Timezone database is corrupt - this should *never* happen! in phar:///bin/composer/src/Composer/Util/Silencer.php on line 70 ``
 
 解决方法
 
