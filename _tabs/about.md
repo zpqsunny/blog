@@ -11,7 +11,7 @@ order: 4
 # 联系方式
 
 - 手机：MTM5MTUzMzY3MjE=
-- Email：zpqsunny#gmail.com
+- Email：zpqsunny@gmail.com
 - QQ：452617435
 
 ---
@@ -21,32 +21,35 @@ order: 4
 - 郑培钦/男/1993
 - 本科/东北大学计算机系
 - 工作年限：8年
-- 技术博客：https://www.zpq.me
-- Github：https://github.com/zpqsunny
+- 技术博客：[https://www.zpq.me](https://www.zpq.me)
+- Github：[https://github.com/zpqsunny](https://github.com/zpqsunny)
 - 期望职位：JAVA程序员
-- 期望薪资：18000 ~ 20000
-- 期望城市：无锡
+- 期望薪资：20000 ~ 22000
+- 期望城市：成都
 
 ---
 
 # 工作经历
 
-## 迪瑞克斯科技无锡有限公司 (2020.11 ~ 至今) - Java开发
+## 迪瑞克斯科技无锡有限公司 (2020.11 ~ 2022.7) - Java开发
 
 ### 主要项目
    从内部业务开发, ERP, OA, B2B, B2C, 银行, 财务,等模块开发
 ### 技术架构
-   分布式架构 + Spring Boot + Spring Cloud + Nacos + Redis + Mybatis + Mysql + MQ + Vue
+   分布式架构 + Spring Boot + Spring Cloud + Nacos + Redis + Mybatis + Mysql + ActiveMQ + Vue
 ### 工作职责
 1. 内部前端开发Jquery 转 Vue
-2. 内部ERP系统开发
+2. 内部系统相关模块开发
 3. 财务系统自动开票
+4. 相关报表的统计和导出
+
 ### 攻克难关
 1. 银行模块通过MQ消息机制进行数据的异步传输, 建立起统一接口和不同银行实现对公付款/对私转账, 实现异步通知结果
  - 中行(Http + XML)
- - 农行(Socket Client)
+ - 农行(SocketClient)
  - 招商(Http + JSON)
 2. 微服务架构系统
+3. 天猫,京东,抖音电商接口对接内部B2C系统和内部物流系统`顺丰`, 天猫是MQ异步通知,京东和抖音Http主动获取
 
 ### 工作评价
 1. 这份工作主要从事技术主管
@@ -63,6 +66,7 @@ order: 4
 1. 内部业务系统开发
 2. 内部ERP系统开发
 3. 内部小程序后台开发
+
 ### 攻克难关
 1. 公司硬件通讯基于Netty框架TCP长连接方式,采用二进制数据格式进行传输
 2. 基于Nacos实现分布式服务架构系统
@@ -76,7 +80,7 @@ order: 4
 ### 主要项目
    该公司主要从事有色金属交易(大宗商品) 期货/现货交易
 ### 技术架构
-1. **JAVA** Spring Boot + Mysql + Redis  + Mybatis + Vue + Vuex + ElementUI + ECharts
+Spring Boot + Mysql + Redis  + Mybatis + Vue + Vuex + ElementUI + ECharts
 ### 工作职责
 1. 内部业务系统研发(采购系统,库存系统,供应商系统,利润核算/报表) http://www.zseego.com
 2. 数据分析平台(后端:数据爬虫,归档,数据对比,数据公式计算) http://data.zseego.com/data/cu
@@ -84,6 +88,7 @@ order: 4
 4. 物流系统(内部业务系统预留出入库接口)
 5. 内部业务系统对接财务系统K3
 6. 公司官网 http://zhongse.zseego.com/
+
 ### 攻克难关
 1. 公司内部业务系统研发 (内部业务复杂,详细了解业务)
 2. 采购系统合同模块开发 (业务合同种样繁多,通过自定义模板和模板自定义字段解决)
@@ -93,6 +98,7 @@ order: 4
 4. 物流系统
     - 基于SpringBoot框架实现了公司现货交易线下运输货物实时物流信息查询
     - 每天现货交易巨大后续通ShardingSphere实现了分表查询
+
 ### 工作评价
 1. 在这家公司学到的东西还是很多,业务上的知识,期货上的知识,有了一定见识
 2. 技术上也有提高,尤其前端熟练运用了Vue
@@ -101,15 +107,19 @@ order: 4
 
 ### 主要项目
    该公司主要从事自助售卖
+
 ### 技术架构
-1. **JAVA** SpringBoot + Mysql + Hibernate + Redis + Bootstrap3 + Jquery + ECharts
+SpringBoot + Mysql + Hibernate + Redis + Bootstrap3 + Jquery + ECharts
+
 ### 工作职责
 1. 独自开发自助售卖平台和商户后台
 2. 独自开发统一支付数据平台(微信,支付宝)
 3. 带领内部小团体完成其他项目
+
 ### 攻克难关
 1. 支付平台的并发 (处理方案基于Spring boot 分布式服务)
 2. 线下设备状态信息和数据上传
+
 ### 工作评价
 1. 这份工作是朋友介绍去做的,该公司主要是生产制造企业想转型.
 2. 在这公司工作的同时也继续研究其他框架,阅读源代码.
@@ -138,22 +148,21 @@ ERP系统项目的实施与维护，二次开发报表。
 
 # 开源项目和作品
 
-
 ## 开源项目
 
-- [Transmission-Web-UI](https://github.com/zpqsunny/Transmission-Web-UI) 为 Transmission 编写的Vue UI 页面可用于 Chrome Edge扩展应用商店|独立
-- [DHT](https://github.com/zpqsunny/dht) JAVA DHT网络磁力爬虫|单独运行/Docker|基于Netty
+- [Transmission-Web-UI](https://github.com/zpqsunny/Transmission-Web-UI) 为`Transmission`编写的VueUI页面,可用于Chrome,Edge扩展应用商店,用户200+
+- [DHT](https://github.com/zpqsunny/dht) 基于Netty网络框架编写的DHT网络磁力爬虫`docker`运行
 
 # 技能清单
 
 以下均为我熟练使用的技能
 
-- 操作系统: Linux
-- Web开发: Java
+- 操作系统: Linux, Openwrt
+- Web开发: Java,PHP
 - Web框架: SpringBoot
 - 前端框架: Bootstrap/HTML5/ElementUI
 - 前端工具: jQuery/Vue
-- 数据库相关: MySQL/Redis/MongoDB
+- 数据库相关: MySQL/Redis/MongoDB/Elasticsearch
 - 版本管理、文档和自动化部署工具: Svn/Git/Maven
 - 单元测试: Unit/SimpleTest/Qunit
 - 相关证书: CCNA, 网络管理员四级
