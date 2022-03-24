@@ -8,6 +8,7 @@ order: 4
 
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=zpqsunny&hide_title=true&hide_border=true&layout=compact&bg_color=0,73FA79,73FDFF,D783FF&theme=graywhite&locale=en)
 
+
 # 联系方式
 
 - 手机：MTM5MTUzMzY3MjE=
@@ -39,7 +40,7 @@ order: 4
    分布式架构 + Spring Boot + Spring Cloud + Nacos + Redis + Mybatis + Mysql + ActiveMQ + Vue
 ### 工作职责
 1. 内部前端开发Jquery 转 Vue
-2. 内部系统相关模块开发
+2. 内部ERP系统开发
 3. 财务系统自动开票
 4. 相关报表的统计和导出
 
@@ -49,7 +50,7 @@ order: 4
  - 农行(SocketClient)
  - 招商(Http + JSON)
 2. 微服务架构系统
-3. 天猫,京东,抖音电商接口对接内部B2C系统和内部物流系统`顺丰`, 天猫是MQ异步通知,京东和抖音Http主动获取
+3. 天猫,京东,抖音电商接口对接内部B2C系统和内部物流系统`顺丰`,`UPS`, 天猫是MQ异步通知,京东和抖音Http主动获取
 
 ### 工作评价
 1. 这份工作主要从事技术主管
@@ -151,21 +152,21 @@ ERP系统项目的实施与维护，二次开发报表。
 ## 开源项目
 
 - [Transmission-Web-UI](https://github.com/zpqsunny/Transmission-Web-UI) 为`Transmission`编写的VueUI页面,可用于Chrome,Edge扩展应用商店,用户200+
-- [DHT](https://github.com/zpqsunny/dht) 基于Netty网络框架编写的DHT网络磁力爬虫`docker`运行
+- [DHT](https://github.com/zpqsunny/dht) 基于Netty网络框架编写的DHT网络磁力爬虫`Docker`运行
 
 # 技能清单
 
 以下均为我熟练使用的技能
 
-- 操作系统: Linux, Openwrt
-- Web开发: Java,PHP
-- Web框架: SpringBoot
+- 操作系统: Linux/Openwrt
+- Web开发: Java/PHP
+- Web框架: SpringBoot/Netty
 - 前端框架: Bootstrap/HTML5/ElementUI
 - 前端工具: jQuery/Vue
 - 数据库相关: MySQL/Redis/MongoDB/Elasticsearch
-- 版本管理、文档和自动化部署工具: Svn/Git/Maven
+- 版本管理、文档和自动化部署工具: Svn/Git/Maven/Docker
 - 单元测试: Unit/SimpleTest/Qunit
-- 相关证书: CCNA, 网络管理员四级
+- 相关证书: CCNA 网络管理员四级
 
 # 致谢
 感谢您花时间阅读我的简历，期待能有机会和您共事。
