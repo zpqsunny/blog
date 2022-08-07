@@ -25,7 +25,7 @@ order: 4
 - 技术博客：[https://www.zpq.me](https://www.zpq.me)
 - Github：[https://github.com/zpqsunny](https://github.com/zpqsunny)
 - 期望职位：JAVA程序员
-- 期望薪资：20000 ~ 22000
+- 期望薪资：13000 ~ 14000
 - 期望城市：成都
 
 ---
@@ -104,7 +104,7 @@ Spring Boot + Mysql + Redis  + Mybatis + Vue + Vuex + ElementUI + ECharts
 1. 在这家公司学到的东西还是很多,业务上的知识,期货上的知识,有了一定见识
 2. 技术上也有提高,尤其前端熟练运用了Vue
 
-## 深圳环阳通信息技术有限公司 (2017.02 ~ 2018.02) - Java开发
+## 深圳环阳通信息技术有限公司 (2015.10 ~ 2018.02) - Java开发
 
 ### 主要项目
    该公司主要从事自助售卖
@@ -113,9 +113,10 @@ Spring Boot + Mysql + Redis  + Mybatis + Vue + Vuex + ElementUI + ECharts
 SpringBoot + Mysql + Hibernate + Redis + Bootstrap3 + Jquery + ECharts
 
 ### 工作职责
-1. 独自开发自助售卖平台和商户后台
-2. 独自开发统一支付数据平台(微信,支付宝)
-3. 带领内部小团体完成其他项目
+1. 微信公众号开发
+2. 独自开发自助售卖平台和商户后台
+3. 独自开发统一支付数据平台(微信,支付宝)
+4. 带领内部小团体完成其他项目
 
 ### 攻克难关
 1. 支付平台的并发 (处理方案基于Spring boot 分布式服务)
@@ -127,18 +128,6 @@ SpringBoot + Mysql + Hibernate + Redis + Bootstrap3 + Jquery + ECharts
 3. 在做自助售卖平台时,因为当时人手的原因,一个人承担了前端和后端的开发,当时前端还比较 薄弱,在这个项目完成后有了明显的提高,同时看了点Vue
 4. 阅读了相关Java的相关书籍<<JavaEE开发的颠覆者 Spring Boot实战>><<Java 8编程官方参考教程(第9版)>><<阿里巴巴开发手册>>
 
-## 深圳点津科技有限公司 (2015.10 ~ 2017.01) - PHP开发
-
-### 主要项目
-   公司主要做微信WEB端应用 O2O商场平台, 信息分享平台。
-### 技术架构
-   ThinkPHP3.2 + Mysql + Redis + Amaze UI + Jquery
-### 工作职责
-   每天完成技术主管安排的任务
-### 攻克难关
-   无
-### 工作评价
-1. 这是我正式入行的第一份工作,主要还是以学习居多,学习后端开发和服务器部署,和一点前端知识.并且学习了Laravel框架.
 
 ## 无锡金点科技有限公司 (2014.07 ~ 2015.08) - 软件实施
 
@@ -159,14 +148,14 @@ ERP系统项目的实施与维护，二次开发报表。
 以下均为我熟练使用的技能
 
 - 操作系统: Linux/Openwrt
-- Web开发: Java/PHP
+- Web开发: Java
 - Web框架: SpringBoot/Netty
 - 前端框架: Bootstrap/HTML5/ElementUI
 - 前端工具: jQuery/Vue
 - 数据库相关: MySQL/Redis/MongoDB/Elasticsearch
 - 版本管理、文档和自动化部署工具: Svn/Git/Maven/Docker
 - 单元测试: Unit/SimpleTest/Qunit
-- 相关证书: CCNA 网络管理员四级
+- 相关证书: CCNA/网络管理员四级
 
 # 致谢
 感谢您花时间阅读我的简历，期待能有机会和您共事。
