@@ -1,5 +1,5 @@
 ---
-title: Mac os client_loop: send disconnect: broken pipe
+title: 'Mac os client_loop: send disconnect: broken pipe'
 date: 2022-10-13 22:31:50 +0800
 categories: [Linux]
 tags: [Iterm2, SSH, macos]
