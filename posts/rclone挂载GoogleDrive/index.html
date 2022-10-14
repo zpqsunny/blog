@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="zh-CN" mode="dark" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="pv-cache-path" content="/assets/js/data/pageviews.json"><meta name="generator" content="Jekyll v4.2.2" /><meta property="og:title" content="rclone挂载GoogleDrive" /><meta name="author" content="zpqsunny" /><meta property="og:locale" content="zh_CN" /><meta name="description" content="原文: https://www.unvone.com/69270.html" /><meta property="og:description" content="原文: https://www.unvone.com/69270.html" /><link rel="canonical" href="https://zpqsunny.github.io/posts/rclone%E6%8C%82%E8%BD%BDGoogleDrive/" /><meta property="og:url" content="https://zpqsunny.github.io/posts/rclone%E6%8C%82%E8%BD%BDGoogleDrive/" /><meta property="og:site_name" content="ZpqdeBlog" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2022-01-19T10:55:00+08:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="rclone挂载GoogleDrive" /><meta name="twitter:site" content="@zpqsunny" /><meta name="twitter:creator" content="@zpqsunny" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"zpqsunny"},"dateModified":"2022-01-20T14:40:22+08:00","datePublished":"2022-01-19T10:55:00+08:00","description":"原文: https://www.unvone.com/69270.html","headline":"rclone挂载GoogleDrive","mainEntityOfPage":{"@type":"WebPage","@id":"https://zpqsunny.github.io/posts/rclone%E6%8C%82%E8%BD%BDGoogleDrive/"},"url":"https://zpqsunny.github.io/posts/rclone%E6%8C%82%E8%BD%BDGoogleDrive/"}</script><title>rclone挂载GoogleDrive | ZpqdeBlog</title><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon.png"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon-precomposed.png"><link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/manifest.json"><meta name='msapplication-config' content='/assets/img/favicons/browserconfig.xml'><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/assets/img/favicons/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="preconnect" href="" crossorigin="use-credentials"><link rel="dns-prefetch" href=""><link rel="preconnect" href="cdn.jsdelivr.net"><link rel="dns-prefetch" href="cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="https://cdn.jsdelivr.net/npm/countup.js@1.9.3/dist/countUp.min.js"></script> <script async src="/assets/js/dist/pvreport.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-162263258-1"></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-162263258-1'); }); </script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src="https://avatars.githubusercontent.com/u/20296627?s=460&u=28d123d2d2bc0626be0de8c7dd42d9afb96788f5&v=4" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">ZpqdeBlog</a></div><div class="site-subtitle font-italic">热爱代码,热爱生活</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center"> <a href="https://github.com/zpqsunny" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com/zpqsunny" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['zpqsunny','gmail.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>rclone挂载GoogleDrive</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>rclone挂载GoogleDrive</h1><div class="post-meta text-muted d-flex flex-column"><div> <span class="semi-bold"> zpqsunny </span> <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Wed, Jan 19, 2022, 10:55 AM +0800" prep="on" > Jan 19 <i class="unloaded">2022-01-19T10:55:00+08:00</i> </span></div><div> <span> <span class="timeago lastmod" data-toggle="tooltip" data-placement="bottom" title="Thu, Jan 20, 2022, 2:40 PM +0800" prefix="Updated " > Jan 20 <i class="unloaded">2022-01-20T14:40:22+08:00</i> </span> </span> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="1043 words">5 min</span> <span id="pv" class="pageviews"><i class="fas fa-spinner fa-spin fa-fw"></i></span></div></div><div class="post-content"><blockquote><p>原文: <a href="https://www.unvone.com/69270.html">https://www.unvone.com/69270.html</a></p></blockquote><h2 id="安装">安装</h2><p>环境Centos7</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre>curl https://rclone.org/install.sh | <span class="nb">sudo </span>bash
+yum <span class="nb">install </span>fuse <span class="nt">-y</span>
+</pre></table></code></div></div><h2 id="开始配置">开始配置</h2><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>rclone config
+</pre></table></code></div></div><p>输入 <strong>n</strong> 新建</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre>No remotes found - make a new one
+n<span class="o">)</span> New remote
+r<span class="o">)</span> Rename remote
+c<span class="o">)</span> Copy remote
+s<span class="o">)</span> Set configuration password
+q<span class="o">)</span> Quit config
+n/r/c/s/q&gt; n
+</pre></table></code></div></div><p>然后回车输入一个name(名字)，例如：这里我创建的名字为 【GoogleDrive】</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>name&gt; GoogleDrive
+</pre></table></code></div></div><p>输入<strong>XX</strong>序号</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre>Type of storage to configure.
+Choose a number from below, or <span class="nb">type </span><span class="k">in </span>your own value
+<span class="o">[</span>snip]
+XX / Google Drive
+   <span class="se">\ </span><span class="s2">"drive"</span>
+<span class="o">[</span>snip]
+Storage&gt; XX
+</pre></table></code></div></div><p>接下来会叫选填 Google Application Client ID 和，这里 2 项都留空回车即可：</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre>Option client_id.
+Google Application Client Id
+Setting your own is recommended.
+See https://rclone.org/drive/#making-your-own-client-id <span class="k">for </span>how to create your own.
+If you leave this blank, it will use an internal key which is low performance.
+Enter a string value. Press Enter <span class="k">for </span>the default <span class="o">(</span><span class="s2">""</span><span class="o">)</span><span class="nb">.</span>
+client_id&gt; 直接回车
+</pre></table></code></div></div><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre>Option client_secret.
+OAuth Client Secret.
+Leave blank normally.
+Enter a string value. Press Enter <span class="k">for </span>the default <span class="o">(</span><span class="s2">""</span><span class="o">)</span><span class="nb">.</span>
+client_secret&gt; 直接回车
+</pre></table></code></div></div><p>rclone 在请求从驱动器访问时应使用的范围，这里选 1 即可</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre><td class="rouge-code"><pre>Option scope.
+Scope that rclone should use when requesting access from drive.
+Enter a string value. Press Enter <span class="k">for </span>the default <span class="o">(</span><span class="s2">""</span><span class="o">)</span><span class="nb">.</span>
+Choose a number from below, or <span class="nb">type </span><span class="k">in </span>your own value.
+ 1 / Full access all files, excluding Application Data Folder.
+   <span class="se">\ </span><span class="s2">"drive"</span>
+ 2 / Read-only access to file metadata and file contents.
+   <span class="se">\ </span><span class="s2">"drive.readonly"</span>
+   / Access to files created by rclone only.
+ 3 | These are visible <span class="k">in </span>the drive website.
+   | File authorization is revoked when the user deauthorizes the app.
+   <span class="se">\ </span><span class="s2">"drive.file"</span>
+   / Allows <span class="nb">read </span>and write access to the Application Data folder.
+ 4 | This is not visible <span class="k">in </span>the drive website.
+   <span class="se">\ </span><span class="s2">"drive.appfolder"</span>
+   / Allows read-only access to file metadata but
+ 5 | does not allow any access to <span class="nb">read </span>or download file content.
+   <span class="se">\ </span><span class="s2">"drive.metadata.readonly"</span>
+scope&gt; 1
+</pre></table></code></div></div><p>选填文件夹 ID 和帐户凭据 JSON 文件路径，这里我都留空回车的</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre>Option root_folder_id.
+ID of the root folder.
+Leave blank normally.
+Fill <span class="k">in </span>to access <span class="s2">"Computers"</span> folders <span class="o">(</span>see docs<span class="o">)</span>, or <span class="k">for </span>rclone to use
+a non root folder as its starting point.
+Enter a string value. Press Enter <span class="k">for </span>the default <span class="o">(</span><span class="s2">""</span><span class="o">)</span><span class="nb">.</span>
+root_folder_id&gt; 直接回车
+</pre></table></code></div></div><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre>Option service_account_file.
+Service Account Credentials JSON file path.
+Leave blank normally.
+Needed only <span class="k">if </span>you want use SA instead of interactive login.
+Leading <span class="sb">`</span>~<span class="sb">`</span> will be expanded <span class="k">in </span>the file name as will environment variables such as <span class="sb">`</span><span class="k">${</span><span class="nv">RCLONE_CONFIG_DIR</span><span class="k">}</span><span class="sb">`</span><span class="nb">.</span>
+Enter a string value. Press Enter <span class="k">for </span>the default <span class="o">(</span><span class="s2">""</span><span class="o">)</span><span class="nb">.</span>
+service_account_file&gt; 直接回车
+
+</pre></table></code></div></div><p>问你是否要编辑高级配置，这里我选择 N</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre>Edit advanced config?
+y<span class="o">)</span> Yes
+n<span class="o">)</span> No <span class="o">(</span>default<span class="o">)</span>
+y/n&gt; n
+</pre></table></code></div></div><p>是否自动远程配置，这里选择 N，因为你在手动远程配置</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre>Use auto config?
+ <span class="k">*</span> Say Y <span class="k">if </span>not sure
+ <span class="k">*</span> Say N <span class="k">if </span>you are working on a remote or headless machine
+
+y<span class="o">)</span> Yes <span class="o">(</span>default<span class="o">)</span>
+n<span class="o">)</span> No
+y/n&gt; n
+</pre></table></code></div></div><p>接下来会给出Google Drive的授权地址，把它复制到浏览器打开，按提示登陆，复制获取到的代码，然后返回 SSH 粘贴后回车</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre>Option config_verification_code.
+Verification code
+Go to this URL, authenticate <span class="k">then </span><span class="nb">paste </span>the code here.
+https://accounts.google.com/o/oauth2/auth?access_type<span class="o">=</span>offline&amp;client_id<span class="o">=</span>202264815644.apps.googleusercontent.com&amp;redirect_uri<span class="o">=</span>urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&amp;response_type<span class="o">=</span>code&amp;scope<span class="o">=</span>https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&amp;state<span class="o">=</span>WXR8NtP7PdDYXfw-ftOFNw
+Enter a string value. Press Enter <span class="k">for </span>the default <span class="o">(</span><span class="s2">""</span><span class="o">)</span><span class="nb">.</span>
+config_verification_code&gt;
+</pre></table></code></div></div><p>问你是不是将其配置为团队网盘，这里选 n</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre>Configure this as a team drive?
+y<span class="o">)</span> Yes <span class="o">(</span>default<span class="o">)</span>
+n<span class="o">)</span> No
+y/n&gt; n
+</pre></table></code></div></div><p>列出你上面修改的配置信息，问你是否删除、编辑或者确定配置信息，这里选择确定 y</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre>y<span class="o">)</span> Yes this is OK <span class="o">(</span>default<span class="o">)</span>?
+e<span class="o">)</span> Edit this remove
+d<span class="o">)</span> Delete this remove
+y/e/d&gt; y
+</pre></table></code></div></div><h2 id="挂载目录">挂载目录</h2><p>演示挂载在可道云盘的目录，我要挂载到 /www/wwwroot/pan.unvone.com/data/User/admin/home/Drive</p><p>挂载命令1（挂载整个谷歌云盘）：</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>rclone mount GoogleDrive: /www/wwwroot/pan.unvone.com/data/User/admin/home/Drive <span class="nt">--allow-other</span> <span class="nt">--allow-non-empty</span> <span class="nt">--vfs-cache-mode</span> writes
+</pre></table></code></div></div><p>挂载命令2（只挂载谷歌云盘的某个目录-backup目录）：</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>rclone mount GoogleDrive:backup /www/wwwroot/pan.unvone.com/data/User/admin/home/Drive <span class="nt">--allow-other</span> <span class="nt">--allow-non-empty</span> <span class="nt">--vfs-cache-mode</span> writes
+</pre></table></code></div></div><p>GoogleDrive 为 Rclone 的前面配置名称，比如你在创建配置 rclone 的时候 Name 填的GoogleDrive，</p><p>/www/wwwroot/pan.unvone.com/data/User/admin/home/Drive为VPS本地路径；</p><p>挂载只要几秒钟，但终端不会返回成功信息，关闭 SSH 重连即可。</p><h2 id="设置开机自动挂载">设置开机自动挂载</h2><p>新建一个/usr/lib/systemd/system/rclone.service 文件内容为</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>vim /usr/lib/systemd/system/rclone.service
+</pre></table></code></div></div><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre>[Unit]
+Description=rclone
+
+[Service]
+User=root
+ExecStart=/usr/bin/rclone mount GoogleDrive: /www/wwwroot/pan.unvone.com/data/User/admin/home/Drive --allow-other --allow-non-empty --vfs-cache-mode writes
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
+</pre></table></code></div></div><p>重载daemon，让新的服务文件生效</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>systemctl daemon-reload
+</pre></table></code></div></div><p>启动 rclone</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>systemctl start rclone
+</pre></table></code></div></div><p>设置开机启动</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>systemctl <span class="nb">enable </span>rclone
+</pre></table></code></div></div></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/linux/'>Linux</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/googledrive/" class="post-tag no-text-decoration" >GoogleDrive</a> <a href="/tags/rclone/" class="post-tag no-text-decoration" >rclone</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=rclone挂载GoogleDrive - ZpqdeBlog&url=https://zpqsunny.github.io/posts/rclone%E6%8C%82%E8%BD%BDGoogleDrive/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=rclone挂载GoogleDrive - ZpqdeBlog&u=https://zpqsunny.github.io/posts/rclone%E6%8C%82%E8%BD%BDGoogleDrive/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=rclone挂载GoogleDrive - ZpqdeBlog&url=https://zpqsunny.github.io/posts/rclone%E6%8C%82%E8%BD%BDGoogleDrive/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"><div id="access-lastmod" class="post"> <span>Recent Update</span><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/Mac-os-client_loop-send-disconnect-broken-pipe/">Mac os client_loop: send disconnect: broken pipe</a><li><a href="/posts/CentOS7%E5%BC%80%E5%90%AFBBR%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95/">CentOS7开启BBR拥塞控制算法</a><li><a href="/posts/openwrt%E5%AE%89%E8%A3%85composer%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">OpenWrt安装composer的一些问题</a><li><a href="/posts/rclone%E6%8C%82%E8%BD%BDGoogleDrive/">rclone挂载GoogleDrive</a><li><a href="/posts/%E5%9C%A8-Centos-7-%E4%B8%8A%E6%90%AD%E5%BB%BA-strongSwan-VPN-IKEv2-%E6%95%B4%E5%90%88-FreeRadius-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E7%B3%BB%E7%BB%9F/">在 Centos 7 上搭建 strongSwan VPN IKEv2 整合 FreeRadius 用户认证系统</a></ul></div><div id="access-tags"> <span>Trending Tags</span><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/laravel/">Laravel</a> <a class="post-tag" href="/tags/php/">PHP</a> <a class="post-tag" href="/tags/mysql/">Mysql</a> <a class="post-tag" href="/tags/css/">css</a> <a class="post-tag" href="/tags/mac/">Mac</a> <a class="post-tag" href="/tags/openwrt/">OpenWrt</a> <a class="post-tag" href="/tags/spring-cloud/">Spring Cloud</a> <a class="post-tag" href="/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/">微信支付</a> <a class="post-tag" href="/tags/apache/">Apache</a> <a class="post-tag" href="/tags/bbr/">BBR</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/Linux%E4%B8%8Bmysql%E7%9A%84%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%E5%B7%A5%E5%85%B7mycli/"><div class="card-body"> <span class="timeago small" > Jun 21, 2019 <i class="unloaded">2019-06-21T16:32:41+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Linux下mysql的自动补全工具mycli</h3><div class="text-muted small"><p> 在linux 终端下编写mysql命令时没有在windows下方便 找到一个自动补全的工具记录下 yum -y install epel-release python-pip python-devel pip install mycli mycli -u root -p root // 用户名密码都是root</p></div></div></a></div><div class="card"> <a href="/posts/%E5%9C%A8-Centos-7-%E4%B8%8A%E6%90%AD%E5%BB%BA-strongSwan-VPN-IKEv2-%E6%95%B4%E5%90%88-FreeRadius-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E7%B3%BB%E7%BB%9F/"><div class="card-body"> <span class="timeago small" > Jun 26, 2019 <i class="unloaded">2019-06-26T17:47:37+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>在 Centos 7 上搭建 strongSwan VPN IKEv2 整合 FreeRadius 用户认证系统</h3><div class="text-muted small"><p> 第一步 安装strongSwan yum -y install epel-release yum -y install strongswan openssl strongswan pki --gen --type rsa --size 4096 --outform pem &gt; ca.key.pem strongswan pki --self --in ca.key.pem --...</p></div></div></a></div><div class="card"> <a href="/posts/mac-os-%E6%9B%BF%E6%8D%A2%E8%87%AA%E5%B8%A6php%E7%89%88%E6%9C%AC/"><div class="card-body"> <span class="timeago small" > May 28, 2020 <i class="unloaded">2020-05-28T12:45:27+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>mac os 替换自带php版本</h3><div class="text-muted small"><p> 通过brew 安装的php版本后执行命令 brew info php@7.2 执行后会提示需要执行的命令 If you need to have this software first in your PATH instead consider running: echo 'export PATH="/usr/local/opt/php@7.2/bin:$PATH"' &gt;&g...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/%E9%BB%91%E8%8B%B9%E6%9E%9C%E6%98%BE%E7%A4%BA%E5%99%A8%E8%8A%B1%E5%B1%8F%E7%BA%A2%E5%B1%8F%E5%B9%95%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="btn btn-outline-primary" prompt="Older"><p>黑苹果显示器花屏红屏幕问题解决</p></a> <a href="/posts/Synology-VideoStation-ffmpeg-wrapper-with-DTS,-EAC3-and-TrueHD-support/" class="btn btn-outline-primary" prompt="Newer"><p>Synology VideoStation ffmpeg wrapper with DTS, EAC3 and TrueHD support</p></a></div></div></div></div><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2022 <a href="https://twitter.com/zpqsunny">zpqsunny</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4><a class="post-tag" href="/tags/laravel/">Laravel</a> <a class="post-tag" href="/tags/php/">PHP</a> <a class="post-tag" href="/tags/mysql/">Mysql</a> <a class="post-tag" href="/tags/css/">css</a> <a class="post-tag" href="/tags/mac/">Mac</a> <a class="post-tag" href="/tags/openwrt/">OpenWrt</a> <a class="post-tag" href="/tags/spring-cloud/">Spring Cloud</a> <a class="post-tag" href="/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/">微信支付</a> <a class="post-tag" href="/tags/apache/">Apache</a> <a class="post-tag" href="/tags/bbr/">BBR</a></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="https://zpqsunny.github.io{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script>
