@@ -8,6 +8,7 @@ tags: [Ollama, ChatGPT, open-webui]
 ## open-webui
 1. 安装Docker
 2. 由于国内原因，需要添加镜像地址, 原镜像地址为 `ghcr.io/open-webui/open-webui:main`
+
 ```shell
 vim /etc/docker/daemon.json
 ```
@@ -23,6 +24,7 @@ systemctl restart docker
 docker pull ghcr.nju.edu.cn/open-webui/open-webui:main
 ```
 3. 编写docker-compose.yml文件
+
 ```yaml
 services:
   open-webui:
@@ -50,6 +52,7 @@ networks:
   default:
     driver: bridge
 ```
+
 4. 文件相关解释
   - 忽略`network_mode`测试及修改使用
   - `HF_ENDPOINT=https://hf-mirror.com` 用于镜像 huggingface.co 域名 `启动时会用到`
