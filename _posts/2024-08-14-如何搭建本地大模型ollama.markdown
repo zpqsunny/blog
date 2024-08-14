@@ -1,0 +1,64 @@
+---
+title: '如何搭建本地大模型ollama + open-webui'
+date: 2024-08-14 09:37:00 +0800
+categories: [Linux]
+tags: [Ollama, ChatGPT, open-webui]
+---
+
+## open-webui
+1. 安装Docker
+2. 由于国内原因，需要添加镜像地址, 原镜像地址为 `ghcr.io/open-webui/open-webui:main`
+```shell
+vim /etc/docker/daemon.json
+```
+```json
+{
+  "registry-mirrors": [
+    "https://ghcr.nju.edu.cn"
+  ]
+}
+```
+```shell
+systemctl restart docker
+docker pull ghcr.nju.edu.cn/open-webui/open-webui:main
+```
+3. 编写docker-compose.yml文件
+```yaml
+services:
+  open-webui:
+    image: ghcr.nju.edu.cn/open-webui/open-webui:main
+    network_mode: host
+    ports:
+      - 3001:1234
+    restart: always
+    environment:
+      - OLLAMA_BASE_URL=http://127.0.0.1:11434
+      - WEBUI_AUTH=false
+      - PORT=1234
+      - RAG_EMBEDDING_MODEL_AUTO_UPDATE=True
+      - HF_ENDPOINT=https://hf-mirror.com
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    volumes:
+      - /docker/open-webui/data:/app/backend/data
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "2"
+        max-size: "20m"
+networks:
+  default:
+    driver: bridge
+```
+4. 文件相关解释
+  - 忽略`network_mode`测试及修改使用
+  - `HF_ENDPOINT=https://hf-mirror.com` 用于镜像 huggingface.co 域名 `启动时会用到`
+  - `host.docker.internal:host-gateway` 暂不明确后续观察
+  - 其他环境变量查看 [https://docs.openwebui.com/getting-started/env-configuration/](https://docs.openwebui.com/getting-started/env-configuration/)
+  - FAQ [https://docs.openwebui.com/faq](https://docs.openwebui.com/faq)
+
+### 安装ollama
+1. 下载地址 https://ollama.com/download
+2. 运行 `ollama serve`
+3. 下载模型 `ollama pull qwen2:0.5b`
+
