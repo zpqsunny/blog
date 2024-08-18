@@ -60,8 +60,9 @@ networks:
   - 其他环境变量查看 [https://docs.openwebui.com/getting-started/env-configuration/](https://docs.openwebui.com/getting-started/env-configuration/)
   - FAQ [https://docs.openwebui.com/faq](https://docs.openwebui.com/faq)
 
-### 安装ollama
-1. 下载地址 https://ollama.com/download
+## 安装ollama
+1. 下载地址 [https://ollama.com/download](https://ollama.com/download])
 2. 运行 `ollama serve`
 3. 下载模型 `ollama pull qwen2:0.5b`
+4. 运行模型 `ollama run qwen2:0.5b`
 
